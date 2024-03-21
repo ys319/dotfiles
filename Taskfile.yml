@@ -1,0 +1,70 @@
+version: "3"
+
+vars:
+  HOST:
+    sh: hostname
+
+tasks:
+  # Alias
+
+  darwin:
+    deps: [update]
+    cmds:
+      - task: switch.darwin
+      - task: switch.home
+      - task: gc
+
+  nixos:
+    deps: [update]
+    cmds:
+      - task: switch.system
+      - task: switch.home
+      - task: gc
+
+  # Utils
+
+  update:
+    cmds:
+      - nix flake update
+
+  gc:
+    cmds:
+      - nix store gc
+
+  # NixOS System
+
+  build.system:
+    cmds:
+      - sudo nixos-rebuild --flake .#{{.HOST}} build
+
+  switch.system:
+    cmds:
+      - sudo nixos-rebuild --flake .#{{.HOST}} switch
+
+  test.system:
+    cmds:
+      - sudo nixos-rebuild --flake .#{{.HOST}} test
+
+  # Home Manager
+
+  build.home:
+    cmds:
+      - nix run home-manager -- --flake .#{{.HOST}} build
+
+  switch.home:
+    cmds:
+      - nix run home-manager -- --flake .#{{.HOST}} switch
+
+  news.home:
+    cmds:
+      - nix run home-manager -- news
+
+  # Nix Darwin
+
+  build.darwin:
+    cmds:
+      - nix run nix-darwin -- --flake ".#{{.HOST}}" build
+
+  switch.darwin:
+    cmds:
+      - nix run nix-darwin -- --flake ".#{{.HOST}}" switch

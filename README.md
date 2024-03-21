@@ -1,2 +1,5 @@
 # dotfiles
-SAVE THE .*
+
+SAVE THE (.*)
+
+## 
