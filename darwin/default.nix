@@ -1,11 +1,12 @@
 { self, pkgs, ... }: {
 
   imports = [
-    ./fonts.nix
+    ./brew.nix
     ./settings.nix
     ./zsh.nix
   ];
 
+  # Replace nix package with nixpkgs.nix
   nix.package = pkgs.nix;
 
   # Enable exterimental features.
@@ -26,4 +27,7 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
+
+  # Sudo with Touch ID
+  security.pam.enableSudoTouchIdAuth = true;
 }

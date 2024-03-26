@@ -1,4 +1,4 @@
-{ home-config, ... }: {
+{ home-config,... }: {
 
   # Enable home-manager
   programs.home-manager.enable = true;

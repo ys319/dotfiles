@@ -26,7 +26,24 @@
 
           # feature modules
           features = [
-            "apps"
+            "develop"
+          ];
+
+          # home-manager user config
+          home-config = rec {
+            username = "gecko";
+            homeDirectory = "/Users/${username}";
+          };
+        };
+
+        # Work laptop
+        vm = {
+
+          # nixpkgs system
+          system = "aarch64-darwin";
+
+          # feature modules
+          features = [
             "develop"
           ];
 

@@ -49,22 +49,22 @@ tasks:
 
   build.home:
     cmds:
-      - nix run home-manager -- --flake .#{{.HOST}} build
+      - home-manager --flake .#{{.HOST}} build
 
   switch.home:
     cmds:
-      - nix run home-manager -- --flake .#{{.HOST}} switch
+      - home-manager --flake .#{{.HOST}} switch
 
   news.home:
     cmds:
-      - nix run home-manager -- news
+      - home-manager news
 
   # Nix Darwin
 
   build.darwin:
     cmds:
-      - nix run nix-darwin -- --flake ".#{{.HOST}}" build
+      - darwin-rebuild --flake ".#{{.HOST}}" build
 
   switch.darwin:
     cmds:
-      - nix run nix-darwin -- --flake ".#{{.HOST}}" switch
+      - darwin-rebuild --flake ".#{{.HOST}}" switch
