@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
 
     # I need these on server.
-    coreutils-prefixed # g* Prefixed coreutil
+    coreutils
     curl
     diffutils
     findutils
@@ -14,6 +14,7 @@
     tree
     wget
     gptfdisk
+    procps
 
     # I love these tools.
     go-task

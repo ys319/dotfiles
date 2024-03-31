@@ -30,6 +30,8 @@
       "gimp"
       "inkscape"
 
+      "arduino-ide"
+
       # insomnia
 
       # Fonts

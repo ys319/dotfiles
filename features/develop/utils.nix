@@ -2,31 +2,30 @@
 
   home.packages = with pkgs; [
 
-    # Cloud Tools
+    # Cloud tools
     terraform
     hasura-cli
     slack-cli
     # wrangler
 
-    # Multimedia Tools
-    # nix-shell -p "sox.override { enableLame = true; }"
-    (sox.overrideAttrs (oldAttrs: {
-      buildInputs = oldAttrs.buildInputs ++ [ lame ];
-    }))
-
+    # Multimedia tools
+    (sox.override { enableLame = true; })
     ffmpeg
     imagemagick
     poppler_utils
     libwebp
 
-    # AI power
+    # AI tools
     openai-whisper-cpp
 
-    # Modern CLI Tools
+    # Modern cli tools
     hurl
     pv
     jq
     tig
     bench
+
+    # Penetration tools
+    rustscan
   ];
 }
