@@ -26,8 +26,8 @@
       wvous-br-corner = 1;
 
       # persistent-apps = [
-      #   "/System/Applications/Launchpad.app"
-      #   "/System/Applications/Mission Control.app"
+      #   "/Applications/HomeBrew/WezTerm.app"
+      #   "/System/Applications/System Settings.app"
       # ];
     };
 
@@ -116,11 +116,55 @@
     CustomUserPreferences = {
 
       NSGlobalDomain = {
+
+        # Accent colors
+        AppleAccentColor = 4;
+        AppleHighlightColor = "0.698039 0.843137 1.000000 Blue";
+
+        # Small sidebar icons
+        NSTableViewDefaultSizeMode = 1;
+
         # Disable tinting.
-        "AppleReduceDesktopTinting" = 1;
+        AppleReduceDesktopTinting = 1;
 
         # Switch IME with CapsLock.
-        "TISRomanSwitchState" = 1;
+        TISRomanSwitchState = 1;
+
+        # Keyboard
+        NSUserQuotesArray = [ "\"" "\"" "'" "'" ];
+        "KB_DoubleQuoteOption" = "\"abc\"";
+        "KB_SingleQuoteOption" = "'abc'";
+
+        # Spelling
+        "KB_SpellingLanguage" = {
+            "KB_SpellingLanguageIsAutomatic" = 1;
+        };
+
+        # Silence nosy features.
+        NSAutomaticInlinePredictionEnabled = 0;
+      };
+
+      "com.apple.HIToolbox" = {
+
+        # Disable earth key
+        AppleFnUsageType = 0;
+      };
+
+      "com.apple.dock" = {
+
+        # Remove download folder
+        "persistent-others" = [];
+      };
+
+      com.apple.WindowManager = {
+          # AppWindowGroupingBehavior = 1;
+          # AutoHide = 0;
+          EnableStandardClickToShowDesktop = 0;
+          # HasDisplayedShowDesktopEducation = 1;
+          # HideDesktop = 1;
+          # StageManagerHideWidgets = 0;
+          # StandardHideDesktopIcons = 0;
+          # StandardHideWidgets = 0;
       };
     };
   };

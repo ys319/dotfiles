@@ -20,19 +20,24 @@
     ];
 
     casks = [
-      "audacity"
-      "firefox"
-      "obs"
-      "typora"
-      "vlc"
+
+      # Develop
+      "arduino-ide"
+      "docker"
+      "insomnia"
       "wezterm"
       "zed"
+
+      # Multimedia
+      "audacity"
       "gimp"
       "inkscape"
+      "obs"
+      "vlc"
 
-      "arduino-ide"
-
-      # insomnia
+      # Tools
+      "firefox"
+      "typora"
 
       # Fonts
       "font-monaspace"
