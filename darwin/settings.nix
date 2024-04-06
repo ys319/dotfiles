@@ -1,6 +1,9 @@
 { lib, ... }: {
 
-  # Disable hot corner
+  # Disable chime
+  system.startup.chime = false;
+
+  # Override defaults
   system.defaults = {
 
     # Better dock
@@ -25,10 +28,13 @@
       wvous-tr-corner = 1;
       wvous-br-corner = 1;
 
-      # persistent-apps = [
-      #   "/Applications/HomeBrew/WezTerm.app"
-      #   "/System/Applications/System Settings.app"
-      # ];
+      persistent-apps = [
+        "/Applications/HomeBrew/WezTerm.app"
+        "/Applications/HomeBrew/Visual Studio Code.app"
+        "/Applications/HomeBrew/Typora.app"
+        "/Applications/HomeBrew/OBS.app"
+        "/Applications/Slack.app"
+      ];
     };
 
     # Better finder
@@ -115,56 +121,67 @@
     # Custom config
     CustomUserPreferences = {
 
-      NSGlobalDomain = {
+      "NSGlobalDomain" = {
 
         # Accent colors
-        AppleAccentColor = 4;
-        AppleHighlightColor = "0.698039 0.843137 1.000000 Blue";
+        "AppleAccentColor" = 4;
+        "AppleHighlightColor" = "0.698039 0.843137 1.000000 Blue";
 
         # Small sidebar icons
-        NSTableViewDefaultSizeMode = 1;
+        "NSTableViewDefaultSizeMode" = 1;
 
         # Disable tinting.
-        AppleReduceDesktopTinting = 1;
+        "AppleReduceDesktopTinting" = 1;
 
         # Switch IME with CapsLock.
-        TISRomanSwitchState = 1;
+        "TISRomanSwitchState" = 1;
 
         # Keyboard
-        NSUserQuotesArray = [ "\"" "\"" "'" "'" ];
+        "NSUserQuotesArray" = [ "\"" "\"" "'" "'" ];
         "KB_DoubleQuoteOption" = "\"abc\"";
         "KB_SingleQuoteOption" = "'abc'";
 
         # Spelling
         "KB_SpellingLanguage" = {
-            "KB_SpellingLanguageIsAutomatic" = 1;
+          "KB_SpellingLanguageIsAutomatic" = 1;
         };
 
         # Silence nosy features.
-        NSAutomaticInlinePredictionEnabled = 0;
+        "NSAutomaticInlinePredictionEnabled" = 0;
+
+        # 
+        "com.apple.trackpad.forceClick" = 0;
       };
 
       "com.apple.HIToolbox" = {
 
         # Disable earth key
-        AppleFnUsageType = 0;
+        "AppleFnUsageType" = 0;
       };
 
       "com.apple.dock" = {
 
         # Remove download folder
-        "persistent-others" = [];
+        "persistent-others" = [ ];
+
+        # 
+        "showAppExposeGestureEnabled" = 1;
+        "showDesktopGestureEnabled" = 0;
       };
 
-      com.apple.WindowManager = {
-          # AppWindowGroupingBehavior = 1;
-          # AutoHide = 0;
-          EnableStandardClickToShowDesktop = 0;
-          # HasDisplayedShowDesktopEducation = 1;
-          # HideDesktop = 1;
-          # StageManagerHideWidgets = 0;
-          # StandardHideDesktopIcons = 0;
-          # StandardHideWidgets = 0;
+      # 
+      "com.apple.WindowManager" = {
+
+        # Disable click to show desktop
+        "EnableStandardClickToShowDesktop" = 0;
+
+        "AppWindowGroupingBehavior" = 1;
+        "AutoHide" = 0;
+        "HasDisplayedShowDesktopEducation" = 1;
+        "HideDesktop" = 1;
+        "StageManagerHideWidgets" = 0;
+        "StandardHideDesktopIcons" = 0;
+        "StandardHideWidgets" = 0;
       };
     };
   };

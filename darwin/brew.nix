@@ -44,22 +44,5 @@
       "font-monaspace"
       "font-monaspace-nerd-font"
     ];
-
-    # google-chrome
-    # wireshark
-    # arduino-ide
-    # bitwarden
-    # cloudflare-warp
-    # hot
-    # mpv
-
-    # dotnet-sdk
-    # unity-hub
-
-    masApps = {
-      "WireGuard" = 1451685025;
-      "Slack" = 803453959;
-      "Xcode" = 497799835;
-    };
   };
 }
