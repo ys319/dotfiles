@@ -1,13 +1,15 @@
 { pkgs, ... }: {
 
   xdg.configFile = {
-    "sheldon/plugins.toml".source = ./sheldon/plugins.toml;
+    "sheldon/plugins.toml".source = ./zsh/plugins.toml;
   };
 
   home = {
 
     # Set xdg's recommended
     sessionVariables = {
+
+      # XDG directory
       XDG_CACHE_HOME = "\${HOME}/.cache";
       XDG_CONFIG_HOME = "\${HOME}/.config";
       XDG_DATA_HOME = "\${HOME}/.local/share";
@@ -22,18 +24,20 @@
   programs.zsh = {
 
     # Variable
-    sessionVariables = { };
+    sessionVariables = {
+
+      # 
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=8";
+      ZSH_HIGHLIGHT_HIGHLIGHTERS = "(main brackets)";
+    };
 
     # Enable
     enable = true;
     enableCompletion = true;
+    enableVteIntegration = true;
 
-    # Tweaks
-    autocd = true;
-
-    # Hacking zsh
+    # Activate homebrew
     initExtraBeforeCompInit = ''
-      # Cache homebrew shellenv
       export HOMEBREW_BINERY="/opt/homebrew/bin/brew"
       export HOMEBREW_CACHEFILE="$XDG_CACHE_HOME/homebrew.zsh"
       if [[ ! -f "$HOMEBREW_CACHEFILE" || "$HOMEBREW_BINERY" -nt "$HOMEBREW_CACHEFILE" ]]; then
@@ -44,7 +48,7 @@
       unset HOMEBREW_BINERY HOMEBREW_CACHEFILE
     '';
 
-    # Initialize sheldon
+    # Activate shelldon
     completionInit = ''
       # Cache sheldon source
       export SHELDON_CONFIGFILE="$XDG_CONFIG_HOME/sheldon/plugins.toml"
@@ -59,18 +63,16 @@
     '';
 
     # Additionals tweaks
-    initExtra = ''
-      setopt auto_param_slash
-      setopt auto_remove_slash
-      setopt extended_glob
-      setopt glob_complete
-      setopt glob_dots
-      setopt notify
-    '';
+    initExtra = builtins.concatStringsSep "\n" [
+      (builtins.readFile zsh/alias.zsh)
+      (builtins.readFile zsh/option.zsh)
+      (builtins.readFile zsh/keybind.zsh)
+    ];
 
     # History
     history = {
-      size = 1000000;
+      size = 65535;
+      save = 65535;
       share = true;
       extended = true;
       ignoreDups = true;
@@ -84,6 +86,32 @@
   };
 
   programs.starship.enable = true;
-  programs.fzf.enable = true;
-  programs.eza.enable = true;
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    defaultOptions = [
+      "--select-1"
+      "--exit-0"
+      "--ansi"
+      "--reverse"
+      "--extended"
+      "--cycle"
+      "--height 60%"
+    ];
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
+
+  # Enable 
+  programs.dircolors = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
 }

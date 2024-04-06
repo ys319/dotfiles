@@ -39,6 +39,7 @@
       # Tools
       "firefox"
       "typora"
+      "keepassxc"
 
       # Fonts
       "font-monaspace"

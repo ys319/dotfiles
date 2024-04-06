@@ -5,7 +5,7 @@
     # Cloud tools
     terraform
     hasura-cli
-    slack-cli
+
     # wrangler
 
     # Multimedia tools
