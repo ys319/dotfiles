@@ -15,6 +15,7 @@
     wget
     gptfdisk
     procps
+    bottom
 
     # I love these tools.
     go-task

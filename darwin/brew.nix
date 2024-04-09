@@ -44,6 +44,9 @@
       # Fonts
       "font-monaspace"
       "font-monaspace-nerd-font"
+
+      # Configuration
+      "wacom-tablet"
     ];
   };
 }
