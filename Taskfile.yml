@@ -13,6 +13,7 @@ tasks:
       - task: switch.darwin
       - task: switch.home
       - task: gc
+      - task: cache.nix
 
   nixos:
     deps: [update]
@@ -68,3 +69,9 @@ tasks:
   switch.darwin:
     cmds:
       - darwin-rebuild --flake ".#{{.HOST}}" switch
+
+  # 
+  cache.nix:
+    cmds:
+      - mkdir -p .cache
+      - nix search nixpkgs "^" --json > .cache/packages.json

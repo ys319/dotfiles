@@ -16,6 +16,8 @@
     gptfdisk
     procps
     bottom
+    gnutar
+    gnused
 
     # I love these tools.
     go-task
