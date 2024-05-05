@@ -22,10 +22,11 @@
     casks = [
 
       # Develop
-      "visual-studio-code"
       "arduino-ide"
       "docker"
+      "godot"
       "insomnia"
+      "visual-studio-code"
       "wezterm"
       "zed"
 
