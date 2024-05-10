@@ -23,6 +23,7 @@
 
       # Develop
       "arduino-ide"
+      "cyberduck"
       "docker"
       "godot"
       "insomnia"
