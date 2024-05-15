@@ -24,6 +24,7 @@
     jq
     tig
     bench
+    rclone
 
     # Penetration tools
     rustscan
