@@ -5,8 +5,7 @@
     # Cloud tools
     terraform
     hasura-cli
-
-    # wrangler
+    wrangler
 
     # Multimedia tools
     (sox.override { enableLame = true; })
