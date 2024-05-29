@@ -29,6 +29,9 @@
       "wezterm"
       "zed"
 
+      "watchfacestudio"
+      "android-platform-tools"
+
       # Multimedia
       "audacity"
       "gimp"
