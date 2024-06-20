@@ -34,6 +34,7 @@
 
       # Multimedia
       "audacity"
+      "blender"
       "gimp"
       "inkscape"
       "obs"
