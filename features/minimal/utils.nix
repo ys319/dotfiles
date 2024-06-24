@@ -2,7 +2,7 @@
 
   home.packages = with pkgs; [
 
-    # I need these on server.
+    # Traditional unix tools
     coreutils
     curl
     diffutils
@@ -15,17 +15,20 @@
     wget
     gptfdisk
     procps
-    bottom
     gnutar
     gnused
 
-    # I love these tools.
+    # Modern alternative tools
+    bottom
+    fping
+    fzf
     go-task
     htop
     ripgrep
-    fzf
-    fping
-    xxHash
     unar
+    xxHash
+
+    # Server tool
+    wakeonlan
   ];
 }

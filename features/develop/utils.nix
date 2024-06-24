@@ -6,6 +6,7 @@
     terraform
     hasura-cli
     wrangler
+    cloudflared
 
     # Multimedia tools
     (sox.override { enableLame = true; })
