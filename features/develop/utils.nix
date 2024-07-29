@@ -5,7 +5,6 @@
     # Cloud tools
     terraform
     hasura-cli
-    wrangler
     cloudflared
 
     # Multimedia tools
