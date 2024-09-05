@@ -2,7 +2,6 @@
 
   # Programs
   imports = [
-
     # Language and Runtime
     ./deno.nix
     ./nix.nix
@@ -10,6 +9,7 @@
     ./rust.nix
 
     # CLI Tools
+    ./direnv.nix
     ./utils.nix
   ];
 }
