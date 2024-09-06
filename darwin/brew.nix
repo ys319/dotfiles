@@ -23,6 +23,7 @@
       "arduino-ide"
       "cyberduck"
       "docker"
+      "fleet"
       "insomnia"
       "visual-studio-code"
       "wezterm"

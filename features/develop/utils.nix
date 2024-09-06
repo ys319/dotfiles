@@ -24,6 +24,7 @@
     tig
     bench
     rclone
+    xh
 
     # Penetration tools
     rustscan
