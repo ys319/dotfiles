@@ -17,7 +17,7 @@
     };
 
     packages = with pkgs; [
-      # sheldon
+      sheldon
     ];
   };
 

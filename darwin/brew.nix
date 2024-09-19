@@ -12,10 +12,7 @@
 
     taps = [ ];
 
-    brews = [
-      # TODO: Migrate to home-manager, if available 0.7.4 on nixpkgs.
-      "sheldon"
-    ];
+    brews = [ ];
 
     casks = [
 
