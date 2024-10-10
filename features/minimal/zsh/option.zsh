@@ -42,6 +42,7 @@ setopt auto_menu
 setopt auto_param_keys
 setopt auto_param_slash
 setopt auto_pushd
+setopt auto_remove_slash
 
 # out of order option
 setopt no_prompt_cr         # disable output "%"

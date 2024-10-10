@@ -8,15 +8,15 @@
     diffutils
     findutils
     gnugrep
+    gnused
+    gnutar
+    gptfdisk
     nkf
     parallel
+    procps
     tmux
     tree
     wget
-    gptfdisk
-    procps
-    gnutar
-    gnused
 
     # Modern alternative tools
     bottom
@@ -27,6 +27,7 @@
     ripgrep
     unar
     xxHash
+    zstd
 
     # Server tool
     wakeonlan
