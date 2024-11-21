@@ -1,5 +1,7 @@
 { pkgs, ... }: {
 
+  home.sessionPath = [ "$HOME/bin" ];
+
   home.packages = with pkgs; [
 
     # Traditional unix tools

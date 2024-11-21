@@ -10,7 +10,7 @@
   nix.package = pkgs.nix;
 
   # Enable exterimental features.
-  nix.settings.experimental-features = "nix-command flakes repl-flake";
+  nix.settings.experimental-features = "nix-command flakes";
 
   # Add flake to $NIX_PATH for nix-shell.
   nix.nixPath = [
