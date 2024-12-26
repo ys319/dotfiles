@@ -3,6 +3,7 @@
   # Programs
   imports = [
     # Language and Runtime
+    ./bun.nix
     ./deno.nix
     ./nix.nix
     ./volta.nix

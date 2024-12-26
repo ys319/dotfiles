@@ -6,6 +6,7 @@
     terraform
     hasura-cli
     cloudflared
+    supabase-cli
 
     # Multimedia tools
     (sox.override { enableLame = true; })
