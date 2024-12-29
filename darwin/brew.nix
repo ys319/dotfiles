@@ -17,16 +17,17 @@
     casks = [
 
       # Develop
-      "arduino-ide"
+      # "arduino-ide"
       "cyberduck"
       "docker"
-      "fleet"
-      "insomnia"
+      # "fleet"
+      "ghostty"
+      # "insomnia"
       "visual-studio-code"
       "wezterm"
-      "zed"
+      # "zed"
 
-      "watchfacestudio"
+      # "watchfacestudio"
       "android-platform-tools"
 
       # Multimedia
@@ -46,7 +47,7 @@
       "font-monaspace"
       "font-monaspace-nerd-font"
 
-      # Configuration
+      # Driver
       "wacom-tablet"
     ];
   };
