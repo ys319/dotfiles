@@ -1,13 +1,9 @@
-{ home-config, lib, ... }: {
+{ profile, lib, ... }: {
 
   # Programs
   imports = [
-
-    # Configure programs
     ./git.nix
     ./zsh.nix
-
-    # Add utils
     ./utils.nix
   ];
 
@@ -16,8 +12,8 @@
 
   # Home directory
   home = {
-    username = home-config.username;
-    homeDirectory = home-config.homeDirectory;
+    username = profile.username;
+    homeDirectory = profile.homeDirectory;
     stateVersion = "23.11";
   };
 
