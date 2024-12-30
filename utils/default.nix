@@ -1,13 +1,10 @@
 { home-manager
+, profile
 , nix-darwin
 , nixpkgs
 , rust-overlay
 , ...
-}@inputs:
-let
-  profile = import ../profile.nix;
-in
-{
+}@inputs: {
 
   # Generate home configuration
   homeConfig = host: config: home-manager.lib.homeManagerConfiguration {
@@ -38,7 +35,25 @@ in
     # Load host specific modules
     modules = [
       { nixpkgs.hostPlatform = config.system; }
-      ../darwin
+      ../system/common
+      ../system/darwin
+      ../hosts/${host}
+    ];
+
+    # Give inputs as specialArgs
+    specialArgs = inputs;
+  };
+
+  # Generate nixos configuration
+  nixosConfig = host: config: nixpkgs.lib.nixosSystem {
+
+    # Default is x86_64
+    system = config.system or "x86_64-linux";
+
+    # Load host specific modules
+    modules = [
+      ../system/common
+      ../system/nixos
       ../hosts/${host}
     ];
 

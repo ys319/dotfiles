@@ -1,5 +1,8 @@
 { lib, ... }: {
 
+  # Sudo with Touch ID
+  security.pam.enableSudoTouchIdAuth = true;
+
   # Disable chime
   system.startup.chime = false;
 
