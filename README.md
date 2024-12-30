@@ -1,7 +1,10 @@
 # Dotfiles
 
-**NOTE:** These Dotfiles are tailored for my personal use, and may change system settings beyond what you might normally expect.  
-Please review the configuration files carefully before use to avoid unintended modifications to your system.
+**Important:** These dotfiles are customized specifically for my personal use and can significantly modify system settings.  
+It is highly recommended to review the configuration files carefully before use to avoid any unintended changes to your system.
+
+主にMac向けの設定でシステムの至る所をいじくり回すので、使う場合はかなり気をつけてください。  
+というか、そのまま使わないほうがいい。
 
 ## Prerequisites
 
@@ -29,6 +32,10 @@ To install Homebrew, run this command:
 ```
 
 Follow the on-screen instructions to complete the installation.
+
+## Add hosts
+
+Create file: `./hosts/[hostname]/default.nix`
 
 ## Apply Dotfiles
 
