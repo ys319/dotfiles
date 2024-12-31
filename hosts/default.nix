@@ -18,4 +18,11 @@
       homeDirectory = "/Users/${username}";
     };
   };
+
+  # WSL
+  wsl = {
+    system = "x86_64-linux";
+    features = ["develop"];
+    profile = rec { };
+  };
 }

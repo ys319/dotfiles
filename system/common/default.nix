@@ -26,12 +26,9 @@
     if pkgs.stdenv.isDarwin
     then { }
     else {
-      dates = lib.mkDefault [ "weekly" ];
+      dates = lib.mkDefault "weekly";
     }
   );
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = lib.mkDefault true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;

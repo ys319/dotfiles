@@ -10,5 +10,7 @@
 
   wsl.enable = true;
   wsl.interop.register = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "gecko";
+
+  networking.hostName = "wsl";
 }
