@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, profile, ... }:
 
 {
-  users.users.gecko = {
+  users.users."${profile.username}" = {
     # Zsh with starship.
     shell = pkgs.zsh;
 

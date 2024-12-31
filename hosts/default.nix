@@ -1,5 +1,4 @@
-# Host specific configuration
-{
+{ profile, ... }: {
 
   # Work laptop
   gecko-mac = {
@@ -13,16 +12,15 @@
     ];
 
     # home-manager user config
-    profile = rec {
-      username = "gecko";
-      homeDirectory = "/Users/${username}";
+    profile = {
+      homeDirectory = "/Users/${profile.username}";
     };
   };
 
   # WSL
   wsl = {
     system = "x86_64-linux";
-    features = ["develop"];
-    profile = rec { };
+    features = [ "develop" ];
+    profile = { };
   };
 }

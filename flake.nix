@@ -1,17 +1,18 @@
 {
   outputs = { self, nixpkgs, ... }@inputs:
     let
+
+      override = {
+        profile = import ./profile.nix // (
+          if builtins.pathExists ./profile.local.nix
+          then import ./profile.local.nix
+          else { }
+        );
+      };
+
       lib = nixpkgs.lib;
-      hosts = import ./hosts;
-      utils = import ./utils (
-        inputs // {
-          profile = import ./profile.nix // (
-            if builtins.pathExists ./profile.local.nix
-            then import ./profile.local.nix
-            else { }
-          );
-        }
-      );
+      hosts = import ./hosts (inputs // override);
+      utils = import ./utils (inputs // override);
     in
     {
 

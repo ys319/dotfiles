@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, profile, ... }: {
 
   # 
   programs = {
@@ -9,10 +9,7 @@
 
       # Generate config
       extraConfig = {
-        user = {
-          name = "Yoshimasa Kuroyama";
-          email = "66538624+ys319@users.noreply.github.com";
-        };
+        user = profile.git;
         ghq = {
           "root" = "~/repo";
         };
