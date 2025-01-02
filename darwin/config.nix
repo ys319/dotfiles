@@ -1,9 +1,4 @@
 {
-  imports = [
-    ./brew.nix
-    ./settings.nix
-    ./zsh.nix
-  ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = lib.mkDefault true;

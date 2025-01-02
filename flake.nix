@@ -31,6 +31,7 @@
 
     home-manager.url = "github:nix-community/home-manager";
     nix-darwin.url = "github:LnL7/nix-darwin";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     rust-overlay.url = "github:oxalica/rust-overlay";
 

@@ -41,7 +41,7 @@ tasks:
 
   switch.system:
     cmds:
-      - sudo nixos-rebuild --flake .#{{.HOST}} switch
+      - sudo nixos-rebuild --flake .#{{.HOST}} switch --show-trace
 
   test.system:
     cmds:

@@ -3,9 +3,8 @@
 {
   imports = [
     nixos-wsl.nixosModules.default
-
     ../../nixos/base
-    ../../nixos/users
+    ../../nixos/users.nix
   ];
 
   wsl.enable = true;
