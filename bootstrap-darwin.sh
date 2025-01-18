@@ -8,4 +8,4 @@ if [[ $# -ne 1 ]]; then
 fi
 
 # Setup Nix Darwin
-nix run nix-darwin -- --flake ".#$1" switch
+nix run nix-darwin --extra-experimental-features flakes --extra-experimental-features nix-command -- --flake ".#$1" switch

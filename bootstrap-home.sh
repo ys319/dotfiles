@@ -8,4 +8,4 @@ if [[ $# -ne 1 ]]; then
 fi
 
 # Setup" Home Manager
-nix run home-manager -- --flake ".#$1" switch
+nix run home-manager --extra-experimental-features flakes --extra-experimental-features nix-command -- --flake ".#$1" switch

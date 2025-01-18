@@ -22,13 +22,8 @@
   nix.gc = {
     automatic = lib.mkDefault true;
     options = lib.mkDefault "--delete-older-than 14d";
-  } // (
-    if pkgs.stdenv.isDarwin
-    then { }
-    else {
-      dates = lib.mkDefault "weekly";
-    }
-  );
+    dates = lib.mkDefault "weekly";
+  };
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;

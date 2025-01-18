@@ -20,7 +20,7 @@
       # "arduino-ide"
       "cyberduck"
       "docker"
-      # "fleet"
+      "fleet"
       "ghostty"
       # "insomnia"
       "visual-studio-code"
