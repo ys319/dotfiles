@@ -48,6 +48,7 @@
   # Hardware
   services.hardware.argonone.enable = true;
   hardware = {
+    enableRedistributableFirmware = true;
     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
     deviceTree = {
       enable = true;

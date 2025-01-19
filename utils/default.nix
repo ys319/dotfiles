@@ -25,7 +25,7 @@
 
     # Give inputs as extraSpecialArgs
     extraSpecialArgs = inputs // {
-      profile = profile // config.profile or {};
+      profile = profile // config.profile or { };
     };
   };
 
@@ -34,7 +34,10 @@
 
     # Load host specific modules
     modules = [
-      { nixpkgs.hostPlatform = config.system; }
+      {
+        nixpkgs.hostPlatform = config.system;
+        networking.hostName = host;
+      }
       ../darwin
       ../hosts/${host}
     ];
@@ -51,6 +54,10 @@
 
     # Load host specific modules
     modules = [
+      {
+        nixpkgs.hostPlatform = config.system;
+        networking.hostName = host;
+      }
       ../hosts/${host}
     ];
 
