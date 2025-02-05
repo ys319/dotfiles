@@ -69,7 +69,7 @@ tasks:
 
   switch.darwin:
     cmds:
-      - darwin-rebuild --flake ".#{{.HOST}}" switch
+      - darwin-rebuild --flake ".#{{.HOST}}" switch --show-trace
 
   # 
   cache.nix:

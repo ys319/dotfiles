@@ -36,7 +36,11 @@
     modules = [
       {
         nixpkgs.hostPlatform = config.system;
-        networking.hostName = host;
+        networking = {
+          hostName = host;
+          computerName = host;
+          localHostName = host;
+        };
       }
       ../darwin
       ../hosts/${host}
