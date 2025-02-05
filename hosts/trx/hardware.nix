@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, modulesPath, ... }:
 
 {
   imports = [
@@ -10,17 +10,15 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/d634dc4e-fedc-4a31-bbcd-25db9dc4a54c";
-      fsType = "xfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/d634dc4e-fedc-4a31-bbcd-25db9dc4a54c";
+    fsType = "xfs";
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/DD3A-2E88";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/DD3A-2E88";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
