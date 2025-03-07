@@ -3,12 +3,13 @@
   # Nvidia 32bit driver
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    # driSupport = true;
+    # driSupport32Bit = true;
   };
 
   # Nvidia driver
   hardware.nvidia = {
+    open = false;
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
