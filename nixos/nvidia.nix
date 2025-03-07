@@ -18,4 +18,5 @@
   # Containers
   virtualisation.docker.enableNvidia = true;
   virtualisation.podman.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
 }
