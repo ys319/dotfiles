@@ -1,7 +1,7 @@
 { lib, ... }: {
 
   # Sudo with Touch ID
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Disable chime
   system.startup.chime = false;
@@ -170,6 +170,24 @@
         # 
         "showAppExposeGestureEnabled" = 1;
         "showDesktopGestureEnabled" = 0;
+      };
+
+      "com.apple.desktopservices" = {
+        # Don't write .DS_Store
+        DSDontWriteNetworkStores = true;
+        DSDontWriteUSBStores = true;
+      };
+
+      "com.apple.AdLib" = {
+        allowApplePersonalizedAdvertising = false;
+      };
+
+      "com.apple.SoftwareUpdate" = {
+        AutomaticCheckEnabled = true;
+        # Check for software updates daily, not just once per week
+        ScheduleFrequency = 1;
+        # Download newly available updates in background
+        AutomaticDownload = 1;
       };
 
       # 

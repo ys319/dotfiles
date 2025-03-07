@@ -2,6 +2,9 @@
 
   home.packages = with pkgs; [
 
+    # notebook
+    jupyter
+
     # Cloud tools
     terraform
     hasura-cli
