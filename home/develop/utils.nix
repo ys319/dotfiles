@@ -2,7 +2,8 @@
 
   home.packages = with pkgs; [
 
-    # notebook
+    # data-science
+    xan
     jupyter
 
     # Cloud tools
