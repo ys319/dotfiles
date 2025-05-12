@@ -12,7 +12,11 @@
 
     taps = [ ];
 
-    brews = [ ];
+    brews = [
+
+      # Unity
+      "mono"
+    ];
 
     casks = [
 
@@ -49,6 +53,9 @@
 
       # Driver
       "wacom-tablet"
+
+      # Unity
+      "dotnet-sdk"
     ];
   };
 }

@@ -13,7 +13,7 @@ tasks:
       - task: switch.darwin
       - task: switch.home
       - task: gc
-      - task: cache.nix
+      # - task: cache.nix
 
   nixos:
     deps: [update]
@@ -21,7 +21,7 @@ tasks:
       - task: switch.system
       - task: switch.home
       - task: gc
-      - task: cache.nix
+      # - task: cache.nix
 
   # Utils
 

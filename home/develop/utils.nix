@@ -11,6 +11,7 @@
     hasura-cli
     cloudflared
     supabase-cli
+    google-cloud-sdk
 
     # Multimedia tools
     (sox.override { enableLame = true; })
