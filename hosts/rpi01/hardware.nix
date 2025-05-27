@@ -6,6 +6,7 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.loader.generic-extlinux-compatible.enable = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
