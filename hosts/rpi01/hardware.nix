@@ -20,10 +20,11 @@
     fsType = "vfat";
   };
 
-  # fileSystems."" = {
-  #   device = "";
-  #   fsType = "btrfs";
-  # };
+  fileSystems."/data" = {
+    device = "4184a67d-07fc-48dd-8307-21dc8eaf5d66";
+    fsType = "btrfs";
+    options = ["compress=zstd" "noatime"];
+  };
 
   swapDevices = [ ];
 

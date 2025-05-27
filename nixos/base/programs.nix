@@ -8,6 +8,7 @@
     home-manager
     wget
     git
+    btrfs-progs
   ];
 
   # Minimal programs for system management.
