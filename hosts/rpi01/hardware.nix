@@ -1,21 +1,11 @@
-{ pkgs, lib, modulesPath, ... }:
+{ lib, modulesPath, ... }:
 
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.generic-extlinux-compatible.enable = true;
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "usbhid"
-
-    "usb_storage"
-    "vc4"
-    "pcie_brcmstb"
-    "reset-raspberrypi"
-  ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
