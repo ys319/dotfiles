@@ -21,7 +21,7 @@
   };
 
   fileSystems."/data" = {
-    device = "4184a67d-07fc-48dd-8307-21dc8eaf5d66";
+    device = "/dev/disk/by-uuid/4184a67d-07fc-48dd-8307-21dc8eaf5d66";
     fsType = "btrfs";
     options = ["compress=zstd" "noatime"];
   };
