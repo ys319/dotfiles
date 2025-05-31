@@ -98,3 +98,7 @@ zsh-defer compdef _time_zone zonetime
 # chrome
 function chrome() { google-chrome-stable $* NUL &; }
 function ghrome() { chrome --guest $*; }
+
+function passgen() {
+  tr -dc "a-zA-Z0-9~!@#$%^&*_+-=:;,./" </dev/random | head -c "${1:-24}"
+}

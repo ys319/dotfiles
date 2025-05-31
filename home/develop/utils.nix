@@ -12,6 +12,7 @@
     cloudflared
     supabase-cli
     google-cloud-sdk
+    minio-client
 
     # Multimedia tools
     (sox.override { enableLame = true; })
