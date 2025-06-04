@@ -9,7 +9,6 @@
 
       # Generate config
       extraConfig = {
-        user = profile.git;
         ghq = {
           "root" = "~/repo";
         };
