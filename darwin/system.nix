@@ -1,5 +1,8 @@
 { lib, ... }: {
 
+  # Primary user
+  system.primaryUser = "gecko";
+
   # Sudo with Touch ID
   security.pam.services.sudo_local.touchIdAuth = true;
 
