@@ -20,6 +20,7 @@
     ../../nixos/flatpak.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/users.nix
+    ../../nixos/zram.nix
   ];
 
   # Use zen kernel

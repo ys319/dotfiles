@@ -22,9 +22,7 @@
     ../../nixos/nvidia.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/users.nix
-
-    # Users
-    ../../users/gecko.nix
+    ../../nixos/zram.nix
   ];
 
   # Use zen kernel

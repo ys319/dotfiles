@@ -1,7 +1,7 @@
 {
   imports = [
-    ./budgie/locale.nix
-    ./budgie/sound.nix
-    ./budgie/xorg.nix
+    ./locale.nix
+    ./sound.nix
+    ./xorg.nix
   ];
 }
