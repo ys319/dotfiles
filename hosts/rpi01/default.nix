@@ -15,6 +15,7 @@
     ../../nixos/appimage.nix
     ../../nixos/docker.nix
     ../../nixos/users.nix
+    ../../nixos/zram.nix
   ];
 
   # Use zen kernel
