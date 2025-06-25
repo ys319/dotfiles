@@ -15,9 +15,9 @@
     # ../../nixos/budgie
 
     # Applications
-    ../../nixos/appimage.nix
+    # ../../nixos/appimage.nix
     ../../nixos/docker.nix
-    ../../nixos/flatpak.nix
+    # ../../nixos/flatpak.nix
     ../../nixos/nvidia.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/users.nix
