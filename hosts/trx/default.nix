@@ -33,7 +33,7 @@
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp9s0 = {
+  networking.interfaces.enp4s0 = {
     useDHCP = false;
     wakeOnLan.enable = true;
     ipv4.addresses = [{
