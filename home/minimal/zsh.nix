@@ -36,6 +36,12 @@
     enableCompletion = true;
     enableVteIntegration = true;
 
+    envExtra = ''
+      if [[ -f ~/.zshenv.local ]]; then
+        source ~/.zshenv.local
+      fi
+    '';
+
     # Activate shelldon
     completionInit = ''
       # Cache sheldon source
@@ -51,7 +57,7 @@
     '';
 
     # Additionals tweaks
-    initExtra = builtins.concatStringsSep "\n" [
+    initContent = builtins.concatStringsSep "\n" [
       (builtins.readFile zsh/alias.zsh)
       (builtins.readFile zsh/option.zsh)
       (builtins.readFile zsh/keybind.zsh)
