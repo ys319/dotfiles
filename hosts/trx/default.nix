@@ -25,7 +25,7 @@
   ];
 
   # Use zen kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Firewall
   networking.firewall.allowedTCPPorts = [ ];
@@ -50,5 +50,14 @@
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "no";
+  };
+
+  # Power
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    charger = {
+      governor = "schedutil";
+      turbo = "auto";
+    };
   };
 }
