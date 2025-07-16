@@ -20,3 +20,6 @@ github = "zsh-users/zsh-autosuggestions"
 
 [plugins.compinit]
 inline = "autoload -Uz compinit && zsh-defer compinit"
+
+[plugins.castor]
+github = "ys319/castor"

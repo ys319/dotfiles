@@ -44,6 +44,7 @@
 
     # Activate shelldon
     completionInit = ''
+
       # Cache sheldon source
       export SHELDON_CONFIGFILE="$XDG_CONFIG_HOME/sheldon/plugins.toml"
       export SHELDON_LOCKFILE="$XDG_DATA_HOME/sheldon/plugins.lock"
@@ -54,6 +55,9 @@
       fi
       source "$SHELDON_CACHEFILE"
       unset SHELDON_CONFIGFILE SHELDON_LOCKFILE SHELDON_CACHEFILE
+
+      # Castor gems
+      CASTOR_GEMS_DIR="~/repo/github.com/ys319/castor-gems/";
     '';
 
     # Additionals tweaks
