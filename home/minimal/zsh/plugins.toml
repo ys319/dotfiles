@@ -1,25 +1,28 @@
 shell = "zsh"
+apply = []
 
-apply = ["defer"]
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 apply = ["source"]
 
-[templates]
-defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
-
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-
-[plugins.compinit]
-inline = "autoload -Uz compinit && zsh-defer compinit"
+apply = ["defer"]
 
 [plugins.castor]
 github = "ys319/castor"
+apply = ["defer"]
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && zsh-defer compinit"

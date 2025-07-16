@@ -57,7 +57,7 @@
       unset SHELDON_CONFIGFILE SHELDON_LOCKFILE SHELDON_CACHEFILE
 
       # Castor gems
-      CASTOR_GEMS_DIR="~/repo/github.com/ys319/castor-gems/";
+      export CASTOR_GEMS_DIR="$HOME/repo/github.com/ys319/castor-gems"
     '';
 
     # Additionals tweaks

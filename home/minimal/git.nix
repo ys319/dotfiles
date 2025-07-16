@@ -1,4 +1,4 @@
-{ pkgs, profile, ... }: {
+{ pkgs, ... }: {
 
   # 
   programs = {
