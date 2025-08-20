@@ -12,7 +12,7 @@ tasks:
     cmds:
       - task: switch.darwin
       - task: switch.home
-      - task: gc
+      # - task: gc
       # - task: cache.nix
 
   nixos:
@@ -20,7 +20,7 @@ tasks:
     cmds:
       - task: switch.system
       - task: switch.home
-      - task: gc
+      # - task: gc
       # - task: cache.nix
 
   # Utils
@@ -31,6 +31,7 @@ tasks:
 
   gc:
     cmds:
+      - nix-collect-garbage --delete-older-than 14d
       - nix store gc
 
   # NixOS System

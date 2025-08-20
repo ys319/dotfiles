@@ -27,6 +27,7 @@
     go-task
     htop
     ripgrep
+    ripunzip
     unar
     xxHash
     zstd

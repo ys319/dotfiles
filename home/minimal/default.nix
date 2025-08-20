@@ -23,4 +23,11 @@
     json = lib.mkForce { };
     entries = lib.mkForce [ ];
   };
+
+  # Enable GC
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    options = lib.mkDefault "--delete-older-than 14d";
+    frequency = lib.mkDefault "weekly";
+  };
 }

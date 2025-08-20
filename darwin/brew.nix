@@ -56,6 +56,9 @@
 
       # Unity
       "dotnet-sdk"
+
+      # AI Tools
+      "lm-studio"
     ];
   };
 }
