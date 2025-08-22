@@ -28,6 +28,6 @@
   nix.gc = {
     automatic = lib.mkDefault true;
     options = lib.mkDefault "--delete-older-than 14d";
-    frequency = lib.mkDefault "weekly";
+    dates = lib.mkDefault "weekly";
   };
 }
