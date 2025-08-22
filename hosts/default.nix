@@ -40,6 +40,6 @@
   # trx
   trx = {
     system = "x86_64-linux";
-    features = [ "apps" "develop" ];
+    features = [ "develop" ];
   };
 }

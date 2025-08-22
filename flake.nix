@@ -3,11 +3,7 @@
     let
 
       override = {
-        profile = import ./profile.nix // (
-          if builtins.pathExists ./profile.local.nix
-          then import ./profile.local.nix
-          else { }
-        );
+        profile = import ./profile.nix;
       };
 
       lib = nixpkgs.lib;

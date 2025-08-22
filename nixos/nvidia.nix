@@ -1,13 +1,9 @@
 { config, ... }: {
 
   # Enable graphics
-  hardware.graphics.enable = true;
-
-  # Nvidia 32bit driver
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    # driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Nvidia driver
@@ -21,8 +17,6 @@
   };
 
   # Containers
-  virtualisation.docker.enableNvidia = true;
-  virtualisation.podman.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
