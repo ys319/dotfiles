@@ -13,6 +13,6 @@
       wezterm
       wireshark
       keepassxc
-      bambu-studio
+      # bambu-studio
     ];
 }
