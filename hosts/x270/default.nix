@@ -15,7 +15,7 @@
     nixos.bootloader.default
     nixos.desktop.budgie.default
     nixos.hardware.default
-    nixos.users.gecko.default
+    nixos.users.default
 
     # Service
     nixos.services.docker

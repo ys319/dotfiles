@@ -1,4 +1,4 @@
-{ pkgs, home-manager, ... }:
+{ stdenv, home-manager, ... }:
 
 host: hostConfig: home-manager.lib.homeManagerConfiguration
 
@@ -12,7 +12,7 @@ rec {
   home = {
     username = hostConfig.username;
     homeDirectory =
-      if pkgs.stdenv.isDarwin
+      if stdenv.isDarwin
       then "/Users/${home.username}"
       else "/home/${home.username}";
   };
