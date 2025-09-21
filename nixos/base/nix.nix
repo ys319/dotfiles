@@ -1,16 +1,15 @@
-{ self, pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+
+{
 
   # Replace nix package with nixpkgs.nix
-  nix.package = pkgs.nix;
+  nix.package = lib.mkDefault pkgs.nix;
 
   # Add flake to $NIX_PATH for nix-shell.
   nix.nixPath = lib.mkDefault [
     "nixpkgs=flake"
     "nixpkgs"
   ];
-
-  # Optimize nix store
-  nix.optimise.automatic = lib.mkDefault true;
 
   # Enable experimental features.
   nix.settings.experimental-features = lib.mkDefault [
@@ -25,6 +24,6 @@
     dates = lib.mkDefault "weekly";
   };
 
-  # Set Git commit hash for darwin-version.
-  system.configurationRevision = self.rev or self.dirtyRev or null;
+  # Optimize nix store
+  nix.optimise.automatic = lib.mkDefault true;
 }

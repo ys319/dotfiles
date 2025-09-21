@@ -1,25 +1,43 @@
 {
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
 
-      override = {
-        profile = import ./profile.nix;
-      };
-
+      # Lib
       lib = nixpkgs.lib;
-      hosts = import ./hosts (inputs // override);
-      utils = import ./utils (inputs // override);
+      hosts = import ./hosts; # inputs;
+
+      # Import importer.
+      importer = import ./lib/importers.nix { inherit lib; };
+
+      # Import directory structrue.
+      nixos = importer ./nixos;
+      darwin = importer ./darwin;
+
+      # 
+      extendedInputs = inputs // { inherit nixos darwin; };
+
+      # NixOS
+      nixosConfig = (import ./lib/mkSystem.nix extendedInputs) "nixos";
+
+      # Darwin
+      darwinConfig = (import ./lib/mkSystem.nix extendedInputs) "darwin";
+
+      # Home Manager
+      homeConfig = import ./lib/home.nix inputs;
     in
     {
 
+      # Expose modules
+      inherit nixos;
+
       # Setup nixos
-      nixosConfigurations = lib.mapAttrs utils.nixosConfig hosts;
+      nixosConfigurations = lib.mapAttrs nixosConfig hosts;
 
       # Setup nix-darwin
-      darwinConfigurations = lib.mapAttrs utils.darwinConfig hosts;
+      darwinConfigurations = lib.mapAttrs darwinConfig hosts;
 
       # Setup home-manager
-      homeConfigurations = lib.mapAttrs utils.homeConfig hosts;
+      homeConfigurations = lib.mapAttrs homeConfig hosts;
     };
 
   inputs = {

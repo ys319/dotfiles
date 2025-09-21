@@ -1,6 +1,8 @@
 {
+
+  # Enable zswap
   zramSwap = {
     enable = true;
-    memoryPercent = 300;
+    memoryPercent = 50;
   };
 }

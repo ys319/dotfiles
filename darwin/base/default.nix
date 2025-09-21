@@ -1,7 +1,7 @@
 {
   imports = [
     ./brew.nix
-    ./config.nix
+    ./nixlang.nix
     ./system.nix
     ./zsh.nix
   ];

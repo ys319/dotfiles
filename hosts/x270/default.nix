@@ -1,4 +1,4 @@
-{ pkgs, nixos-hardware, ... }:
+{ pkgs, nixos-hardware, nixos, ... }:
 
 {
   imports = [
@@ -11,16 +11,15 @@
     nixos-hardware.nixosModules.lenovo-thinkpad-x270
 
     # Features
-    ../../nixos/base
-    ../../nixos/budgie
+    nixos.base.default
+    nixos.bootloader.default
+    nixos.desktop.budgie.default
+    nixos.hardware.default
+    nixos.users.gecko.default
 
-    # Applications
-    ../../nixos/appimage.nix
-    ../../nixos/docker.nix
-    ../../nixos/flatpak.nix
-    ../../nixos/systemd-boot.nix
-    ../../nixos/users.nix
-    ../../nixos/zram.nix
+    # Service
+    nixos.services.docker
+    nixos.services.flatpak
   ];
 
   # Use zen kernel

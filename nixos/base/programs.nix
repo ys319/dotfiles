@@ -1,18 +1,10 @@
-{ pkgs, ... }: {
-
-  # Enable nix-ld.
-  programs.nix-ld.enable = true;
-
-  # Additional packages
-  environment.systemPackages = with pkgs; [
-    home-manager
-    wget
-    git
-    btrfs-progs
-  ];
+{
 
   # Minimal programs for system management.
   programs = {
+
+    # Enable nix-ld.
+    nix-ld.enable = true;
 
     # My favorite tools.
     git.enable = true;
