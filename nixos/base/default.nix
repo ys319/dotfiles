@@ -6,6 +6,7 @@
     ./network.nix
     ./nix.nix
     ./nixpkgs.nix
+    ./programs.nix
     ./versions.nix
   ];
 }
