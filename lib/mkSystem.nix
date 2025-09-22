@@ -45,6 +45,9 @@ hostName: hostConfig: config.builder rec {
 
   modules = [
     (config.baseModule { inherit system hostName; })
+    {
+      nixpkgs.config.allowUnfree = true;
+    }
     ../hosts/${hostName}
   ];
 

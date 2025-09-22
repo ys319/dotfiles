@@ -13,7 +13,7 @@
       nixos = importer ./nixos;
       darwin = importer ./darwin;
 
-      # 
+      #
       extendedInputs = inputs // { inherit nixos darwin; };
 
       # NixOS
@@ -23,7 +23,7 @@
       darwinConfig = (import ./lib/mkSystem.nix extendedInputs) "darwin";
 
       # Home Manager
-      homeConfig = import ./lib/home.nix inputs;
+      homeConfig = import ./lib/mkHome.nix extendedInputs;
     in
     {
 
@@ -41,16 +41,35 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    # Nixpkgs
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
+
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Nix Darwin
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # NixOS Hardware
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+
+    # NixOS WSL
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rust-overlay.url = "github:oxalica/rust-overlay";
-
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
