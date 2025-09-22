@@ -3,27 +3,20 @@
 host: hostConfig:
 
 let
-  nixpkgsConfig = (import ../common/nixpkgs.nix) { inherit inputs; };
+  features = [ "base" ] ++ hostConfig.features or [ ];
+in
 
-  pkgs = import nixpkgs ({
+home-manager.lib.homeManagerConfiguration {
+
+  pkgs = import nixpkgs {
     system = hostConfig.system;
     config.allowUnfree = true;
     overlays = [
       (import rust-overlay)
     ];
-  } // nixpkgsConfig);
-
-in
-home-manager.lib.homeManagerConfiguration {
-  inherit pkgs;
-
-  extraSpecialArgs = {
-    inherit inputs;
   };
 
-  modules = (map (feat: ../home/${feat}) (
-    [ "minimal" ] ++ hostConfig.features or [ ]
-  ));
+  modules = map (feat: ../home/${feat}) features;
 
-  # home.username = hostConfig.username;
+  extraSpecialArgs = inputs;
 }

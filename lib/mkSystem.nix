@@ -45,7 +45,6 @@ hostName: hostConfig: config.builder rec {
 
   modules = [
     (config.baseModule { inherit system hostName; })
-    ../common/nixpkgs.nix
     ../hosts/${hostName}
   ];
 
