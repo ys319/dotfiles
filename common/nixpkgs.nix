@@ -1,9 +1,10 @@
-{ rust-overlay, ... }:
+{ inputs, ... }:
 
 {
   nixpkgs = {
     overlays = [
-      rust-overlay.overlays.default
+      # `inputs`の中から`rust-overlay`にアクセスする
+      inputs.rust-overlay.overlays.default
     ];
 
     config = {

@@ -1,19 +1,29 @@
-{ stdenv, home-manager, ... }:
+{ home-manager, nixpkgs, rust-overlay, ... }@inputs:
 
-host: hostConfig: home-manager.lib.homeManagerConfiguration
+host: hostConfig:
 
-rec {
+let
+  nixpkgsConfig = (import ../common/nixpkgs.nix) { inherit inputs; };
 
-  # Load features modules
-  modules = map (feat: ../home/${feat}) (
-    [ "minimal" ] ++ hostConfig.features or [ ]
-  );
+  pkgs = import nixpkgs ({
+    system = hostConfig.system;
+    config.allowUnfree = true;
+    overlays = [
+      (import rust-overlay)
+    ];
+  } // nixpkgsConfig);
 
-  home = {
-    username = hostConfig.username;
-    homeDirectory =
-      if stdenv.isDarwin
-      then "/Users/${home.username}"
-      else "/home/${home.username}";
+in
+home-manager.lib.homeManagerConfiguration {
+  inherit pkgs;
+
+  extraSpecialArgs = {
+    inherit inputs;
   };
+
+  modules = (map (feat: ../home/${feat}) (
+    [ "minimal" ] ++ hostConfig.features or [ ]
+  ));
+
+  # home.username = hostConfig.username;
 }
