@@ -5,23 +5,85 @@ vars:
     sh: hostname
 
 tasks:
-  # Alias
 
-  darwin:
-    deps: [update]
+  ### BUILD ###
+
+  build:
     cmds:
+      - task: build.nixos
+      - task: build.darwin
+      - task: build.home
+
+  build.nixos:
+    platforms:
+      - linux
+    cmds:
+      - task: build.system
+      - sudo nixos-rebuild --flake .#{{.HOST}} build --show-trace
+
+  build.darwin:
+    platforms:
+      - darwin
+    cmds:
+      - sudo darwin-rebuild --flake ".#{{.HOST}}" build --show-trace
+
+  build.home:
+    cmds:
+      - home-manager --flake .#{{.HOST}} build --show-trace
+
+  ### SWITCH ###
+
+  switch:
+    cmds:
+      - task: switch.nixos
       - task: switch.darwin
       - task: switch.home
-      # - task: gc
-      # - task: cache.nix
 
-  nixos:
-    deps: [update]
+  switch.nixos:
+    platforms:
+      - linux
     cmds:
       - task: switch.system
-      - task: switch.home
-      # - task: gc
-      # - task: cache.nix
+      - sudo nixos-rebuild --flake .#{{.HOST}} switch --show-trace
+
+  switch.darwin:
+    platforms:
+      - darwin
+    cmds:
+      - sudo darwin-rebuild --flake ".#{{.HOST}}" switch --show-trace
+
+  switch.home:
+    cmds:
+      - home-manager --flake .#{{.HOST}} switch --show-trace
+
+  ### TEST ###
+
+  test:
+    cmds:
+      - task: test.nixos
+      - task: test.darwin
+
+  test.nixos:
+    platforms:
+      - linux
+    cmds:
+      - sudo nixos-rebuild --flake .#{{.HOST}} test --show-trace
+
+  test.darwin:
+    platforms:
+      - darwin
+    cmds:
+      - sudo darwin-rebuild --flake ".#{{.HOST}}" test --show-trace
+
+  ### NEWS ###
+
+  news:
+    cmds:
+      - task: news.home
+
+  news.home:
+    cmds:
+      - home-manager news
 
   # Utils
 
@@ -33,47 +95,3 @@ tasks:
     cmds:
       - nix-collect-garbage --delete-older-than 14d
       - nix store gc
-
-  # NixOS System
-
-  build.system:
-    cmds:
-      - sudo nixos-rebuild --flake .#{{.HOST}} build
-
-  switch.system:
-    cmds:
-      - sudo nixos-rebuild --flake .#{{.HOST}} switch --show-trace
-
-  test.system:
-    cmds:
-      - sudo nixos-rebuild --flake .#{{.HOST}} test
-
-  # Home Manager
-
-  build.home:
-    cmds:
-      - home-manager --flake .#{{.HOST}} build
-
-  switch.home:
-    cmds:
-      - home-manager --flake .#{{.HOST}} switch
-
-  news.home:
-    cmds:
-      - home-manager news
-
-  # Nix Darwin
-
-  build.darwin:
-    cmds:
-      - sudo darwin-rebuild --flake ".#{{.HOST}}" build
-
-  switch.darwin:
-    cmds:
-      - sudo darwin-rebuild --flake ".#{{.HOST}}" switch --show-trace
-
-  # 
-  cache.nix:
-    cmds:
-      - mkdir -p .cache
-      - nix search nixpkgs "^" --json > .cache/packages.json
