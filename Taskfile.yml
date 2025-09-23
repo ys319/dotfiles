@@ -18,7 +18,6 @@ tasks:
     platforms:
       - linux
     cmds:
-      - task: build.system
       - sudo nixos-rebuild --flake .#{{.HOST}} build --show-trace
 
   build.darwin:
@@ -43,7 +42,6 @@ tasks:
     platforms:
       - linux
     cmds:
-      - task: switch.system
       - sudo nixos-rebuild --flake .#{{.HOST}} switch --show-trace
 
   switch.darwin:
