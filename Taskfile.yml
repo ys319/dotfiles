@@ -15,18 +15,21 @@ tasks:
       - task: build.home
 
   build.nixos:
+    internal: true
     platforms:
       - linux
     cmds:
       - sudo nixos-rebuild --flake .#{{.HOST}} build --show-trace
 
   build.darwin:
+    internal: true
     platforms:
       - darwin
     cmds:
       - sudo darwin-rebuild --flake ".#{{.HOST}}" build --show-trace
 
   build.home:
+    internal: true
     cmds:
       - home-manager --flake .#{{.HOST}} build --show-trace
 
@@ -39,18 +42,21 @@ tasks:
       - task: switch.home
 
   switch.nixos:
+    internal: true
     platforms:
       - linux
     cmds:
       - sudo nixos-rebuild --flake .#{{.HOST}} switch --show-trace
 
   switch.darwin:
+    internal: true
     platforms:
       - darwin
     cmds:
       - sudo darwin-rebuild --flake ".#{{.HOST}}" switch --show-trace
 
   switch.home:
+    internal: true
     cmds:
       - home-manager --flake .#{{.HOST}} switch --show-trace
 
@@ -62,12 +68,14 @@ tasks:
       - task: test.darwin
 
   test.nixos:
+    internal: true
     platforms:
       - linux
     cmds:
       - sudo nixos-rebuild --flake .#{{.HOST}} test --show-trace
 
   test.darwin:
+    internal: true
     platforms:
       - darwin
     cmds:
@@ -80,10 +88,11 @@ tasks:
       - task: news.home
 
   news.home:
+    internal: true
     cmds:
       - home-manager news
 
-  # Utils
+  ### Utils ###
 
   update:
     cmds:
