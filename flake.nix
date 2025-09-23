@@ -4,40 +4,42 @@
 
       # Lib
       lib = nixpkgs.lib;
-      hosts = import ./hosts; # inputs;
 
-      # Import importer.
-      importer = import ./lib/importers.nix { inherit lib; };
+      # Import hosts
+      hosts = import ./hosts;
 
-      # Import directory structrue.
-      nixos = importer ./nixos;
-      darwin = importer ./darwin;
+      # Import modules
+      mkHome = import ./lib/mkHome.nix;
+      mkModules = import ./lib/mkModules.nix { inherit lib; };
+      mkSystem = import ./lib/mkSystem.nix;
 
-      #
-      extendedInputs = inputs // { inherit nixos darwin; };
+      # Create systemInputs
+      nixos = mkModules ./nixos;
+      darwin = mkModules ./darwin;
+      systemInputs = inputs // { inherit nixos darwin; };
 
       # NixOS
-      nixosConfig = (import ./lib/mkSystem.nix extendedInputs) "nixos";
+      nixosConfig = mkSystem "nixos" systemInputs;
 
       # Darwin
-      darwinConfig = (import ./lib/mkSystem.nix extendedInputs) "darwin";
+      darwinConfig = mkSystem "darwin" systemInputs;
 
       # Home Manager
-      homeConfig = import ./lib/mkHome.nix extendedInputs;
+      homeConfig = mkHome inputs;
     in
     {
 
       # Expose modules
       inherit nixos;
 
-      # Setup nixos
-      nixosConfigurations = lib.mapAttrs nixosConfig hosts;
+      # Setup home-manager
+      homeConfigurations = lib.mapAttrs homeConfig hosts;
 
       # Setup nix-darwin
       darwinConfigurations = lib.mapAttrs darwinConfig hosts;
 
-      # Setup home-manager
-      homeConfigurations = lib.mapAttrs homeConfig hosts;
+      # Setup nixos
+      nixosConfigurations = lib.mapAttrs nixosConfig hosts;
     };
 
   inputs = {

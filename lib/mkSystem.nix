@@ -1,3 +1,5 @@
+type:
+
 { nixpkgs, nix-darwin, ... }@inputs:
 
 let
@@ -29,11 +31,6 @@ let
       };
     };
   };
-in
-
-type:
-
-let
 
   # Select builder from type
   config = systemBuilders.${type};

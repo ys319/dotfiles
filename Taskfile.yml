@@ -101,4 +101,3 @@ tasks:
   gc:
     cmds:
       - nix-collect-garbage --delete-older-than 14d
-      - nix store gc
