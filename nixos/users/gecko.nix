@@ -15,7 +15,7 @@
       "video"
       "docker"
       "dialout" # Allow access serial port
-      "libvirt"
+      "libvirtd"
     ];
 
     # Public key.
