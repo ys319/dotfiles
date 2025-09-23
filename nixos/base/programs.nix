@@ -18,5 +18,7 @@
       vimAlias = true;
       defaultEditor = true;
     };
+
+    virt-manager.enable =  true;
   };
 }
