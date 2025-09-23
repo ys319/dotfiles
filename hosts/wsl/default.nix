@@ -1,10 +1,14 @@
-{ nixos-wsl, ... }:
+{ nixos, nixos-wsl, ... }:
 
 {
   imports = [
+
+    # WSL modules
     nixos-wsl.nixosModules.default
-    ../../nixos/base
-    ../../nixos/users.nix
+
+    # Features
+    nixos.base.default
+    nixos.users.default
   ];
 
   wsl.enable = true;

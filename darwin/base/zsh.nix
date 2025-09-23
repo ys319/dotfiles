@@ -8,14 +8,12 @@
     enableCompletion = false;
     enableBashCompletion = false;
 
-    # setOptions = [ ];
-    promptInit = "";
-
-    # Load nix daemon.
-    interactiveShellInit = ''
-      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-          . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-      fi
-    '';
+    # # Load nix daemon.
+    # promptInit = "";
+    # interactiveShellInit = ''
+    #   if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    #       . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    #   fi
+    # '';
   };
 }

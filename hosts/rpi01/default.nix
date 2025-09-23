@@ -1,21 +1,19 @@
-{ pkgs, nixos-hardware, ... }:
+{ pkgs, nixos, nixos-hardware, ... }:
 
 {
   imports = [
+
     # Hardware
     ./hardware.nix
 
     # Hardware modules
     nixos-hardware.nixosModules.raspberry-pi-4
 
-    # Features
-    ../../nixos/base
-
-    # Applications
-    ../../nixos/appimage.nix
-    ../../nixos/docker.nix
-    ../../nixos/users.nix
-    ../../nixos/zram.nix
+    # NixOS modules
+    nixos.base.default
+    nixos.hardware.default
+    nixos.services.default
+    nixos.users.default
   ];
 
   # Use zen kernel

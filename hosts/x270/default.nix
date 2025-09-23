@@ -15,11 +15,8 @@
     nixos.bootloader.default
     nixos.desktop.budgie.default
     nixos.hardware.default
+    nixos.services.default
     nixos.users.default
-
-    # Service
-    nixos.services.docker
-    nixos.services.flatpak
   ];
 
   # Use zen kernel

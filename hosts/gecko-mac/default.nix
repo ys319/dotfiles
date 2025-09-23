@@ -3,7 +3,7 @@
 {
   imports = [
 
-    # とりあえずBaseだけ
+    # Monolithic module.
     darwin.base.default
   ];
 }
