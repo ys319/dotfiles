@@ -1,7 +1,8 @@
-{ nixos-hardware, ... }:
+{ nixos, nixos-hardware, ... }:
 
 {
   imports = [
+
     # Hardware
     ./hardware.nix
 
@@ -11,17 +12,13 @@
     nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
 
     # Features
-    ../../nixos/base
-    # ../../nixos/budgie
-
-    # Applications
-    # ../../nixos/appimage.nix
-    ../../nixos/docker.nix
-    # ../../nixos/flatpak.nix
-    ../../nixos/nvidia.nix
-    ../../nixos/systemd-boot.nix
-    ../../nixos/users.nix
-    ../../nixos/zram.nix
+    nixos.base.default
+    nixos.bootloader.default
+    # nixos.desktop.budgie.default
+    nixos.hardware.default
+    nixos.hardware.nvidia
+    nixos.services.default
+    nixos.users.default
   ];
 
   # Use zen kernel

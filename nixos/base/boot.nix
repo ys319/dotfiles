@@ -1,6 +1,0 @@
-{
-  boot.supportedFilesystems = [
-    "btrfs"
-    # "bcachefs"
-  ];
-}

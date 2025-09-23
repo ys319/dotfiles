@@ -1,7 +1,7 @@
-{ pkgs, profile, ... }:
+{ pkgs, ... }:
 
 {
-  users.users."${profile.username}" = {
+  users.users.gecko = {
     # Zsh with starship.
     shell = pkgs.zsh;
 
@@ -15,6 +15,7 @@
       "video"
       "docker"
       "dialout" # Allow access serial port
+      "libvirt"
     ];
 
     # Public key.

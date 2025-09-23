@@ -30,7 +30,6 @@
       "visual-studio-code"
       "wezterm"
       # "zed"
-
       # "watchfacestudio"
       "android-platform-tools"
 

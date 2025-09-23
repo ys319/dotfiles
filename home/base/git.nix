@@ -1,13 +1,11 @@
 { pkgs, ... }: {
 
-  # 
   programs = {
 
-    # Git
     git = {
       enable = true;
-
-      # Generate config
+      userEmail = "66538624+ys319@users.noreply.github.com";
+      userName = "Yoshimasa Kuroyama";
       extraConfig = {
         ghq = {
           "root" = "~/repo";
@@ -15,7 +13,6 @@
       };
     };
 
-    # GitHub CLI
     gh = {
       enable = true;
     };

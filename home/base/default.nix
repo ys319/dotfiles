@@ -1,4 +1,4 @@
-{ profile, lib, ... }: {
+{ lib, pkgs, ... }: {
 
   # Programs
   imports = [
@@ -11,9 +11,12 @@
   programs.home-manager.enable = true;
 
   # Home directory
-  home = {
-    username = profile.username;
-    homeDirectory = profile.homeDirectory;
+  home = rec {
+    username = "gecko";
+    homeDirectory =
+      if pkgs.stdenv.isDarwin
+      then "/Users/${username}"
+      else "/home/${username}";
     stateVersion = "23.11";
   };
 
