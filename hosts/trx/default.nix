@@ -18,6 +18,7 @@
     nixos.hardware.default
     nixos.hardware.nvidia
     nixos.services.default
+    nixos.services.libvirtd
     nixos.users.default
   ];
 
