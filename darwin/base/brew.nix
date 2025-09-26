@@ -14,8 +14,8 @@
 
     brews = [
 
-      # Unity
-      "mono"
+      # # Unity
+      # "mono"
     ];
 
     casks = [
@@ -23,7 +23,7 @@
       # Develop
       # "arduino-ide"
       "cyberduck"
-      "docker"
+      "docker-desktop"
       "fleet"
       "ghostty"
       # "insomnia"
@@ -47,14 +47,13 @@
       "keepassxc"
 
       # Fonts
-      "font-monaspace"
-      "font-monaspace-nerd-font"
+      "font-jetbrains-mono"
 
       # Driver
       "wacom-tablet"
 
-      # Unity
-      "dotnet-sdk"
+      # # Unity
+      # "dotnet-sdk"
 
       # AI Tools
       "lm-studio"
