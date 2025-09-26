@@ -29,7 +29,7 @@
       # "insomnia"
       "visual-studio-code"
       "wezterm"
-      # "zed"
+      "zed"
       # "watchfacestudio"
       "android-platform-tools"
 
