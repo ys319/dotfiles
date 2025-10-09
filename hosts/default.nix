@@ -7,7 +7,7 @@
     system = "aarch64-darwin";
 
     # feature modules
-    features = [ "develop" ];
+    features = [ "darwin" "develop" ];
   };
 
   # WSL

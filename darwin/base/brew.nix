@@ -47,7 +47,7 @@
       "keepassxc"
 
       # Fonts
-      "font-jetbrains-mono"
+      "font-monaspice-nerd-font"
 
       # Driver
       "wacom-tablet"
