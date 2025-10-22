@@ -10,9 +10,12 @@
 
     caskArgs.appdir = "/Applications/HomeBrew";
 
-    taps = [ ];
+    taps = [
+      "ys319/homebrew-tap"
+    ];
 
     brews = [
+      "jotty"
 
       # # Unity
       # "mono"
@@ -22,6 +25,7 @@
 
       # Develop
       # "arduino-ide"
+      "container"
       "cyberduck"
       "docker-desktop"
       "fleet"
@@ -45,15 +49,13 @@
       "firefox"
       "typora"
       "keepassxc"
+      "smoothcsv"
 
       # Fonts
       "font-monaspice-nerd-font"
 
       # Driver
       "wacom-tablet"
-
-      # # Unity
-      # "dotnet-sdk"
 
       # AI Tools
       "lm-studio"

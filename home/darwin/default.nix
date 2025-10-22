@@ -13,11 +13,14 @@
 
   home.file = {
     ".duti.conf".text = ''
+
       # VS Code
       com.microsoft.VSCode public.source-code	all
       com.microsoft.VSCode public.plain-text all
       com.microsoft.VSCode .xml all
-      com.microsoft.VSCode .md all
+
+      # Typora
+      abnerworks.Typora .md all
     '';
   };
 }
