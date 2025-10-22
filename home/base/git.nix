@@ -1,12 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   programs = {
 
     git = {
       enable = true;
-      userEmail = "66538624+ys319@users.noreply.github.com";
-      userName = "Yoshimasa Kuroyama";
-      extraConfig = {
+      settings = {
+        user.email = "66538624+ys319@users.noreply.github.com";
+        user.name = "Yoshimasa Kuroyama";
         ghq = {
           "root" = "~/repo";
         };
