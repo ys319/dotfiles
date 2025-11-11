@@ -10,12 +10,11 @@
 
     caskArgs.appdir = "/Applications/HomeBrew";
 
-    taps = [
-      # "ys319/homebrew-tap"
-    ];
+    # taps = [
+    # ];
 
     brews = [
-      "ys319/homebrew-tap/jotty"
+      "ys319/tap/jotty"
 
       # # Unity
       # "mono"
