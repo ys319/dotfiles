@@ -29,12 +29,12 @@
     useDHCP = false;
     # wakeOnLan.enable = true;
     ipv4.addresses = [{
-      address = "10.10.1.11";
+      address = "10.1.2.1";
       prefixLength = 16;
     }];
   };
-  networking.defaultGateway = "10.10.1.1";
-  networking.nameservers = [ "10.10.1.1" ];
+  networking.defaultGateway = "10.0.0.1";
+  networking.nameservers = [ "10.0.0.1" ];
 
   # OpenSSH
   services.openssh = {
