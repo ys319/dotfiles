@@ -18,11 +18,11 @@
     (sox.override { enableLame = true; })
     ffmpeg
     imagemagick
-    poppler_utils
+    poppler-utils
     libwebp
 
     # AI tools
-    openai-whisper-cpp
+    whisper-cpp
 
     # Modern cli tools
     hurl

@@ -5,6 +5,7 @@
     # Language and Runtime
     ./bun.nix
     ./deno.nix
+    ./go.nix
     ./nixlang.nix
     ./php.nix
     ./python.nix
