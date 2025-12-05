@@ -24,15 +24,16 @@
 
       # Develop
       # "arduino-ide"
-      "container"
+      "antigravity"
+      # "container"
       "cyberduck"
       "docker-desktop"
-      "fleet"
+      # "fleet"
       "ghostty"
       # "insomnia"
       "visual-studio-code"
-      "wezterm"
-      "zed"
+      # "wezterm"
+      # "zed"
       # "watchfacestudio"
       "android-platform-tools"
 

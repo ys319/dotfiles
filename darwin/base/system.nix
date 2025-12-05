@@ -35,11 +35,14 @@
       wvous-br-corner = 1;
 
       persistent-apps = [
-        "/Applications/HomeBrew/WezTerm.app"
-        "/Applications/HomeBrew/Visual Studio Code.app"
-        "/Applications/HomeBrew/Typora.app"
-        "/Applications/HomeBrew/OBS.app"
         "/Applications/Slack.app"
+        "/Applications/Google Chrome.app"
+        # "/Applications/HomeBrew/WezTerm.app"
+        "/Applications/HomeBrew/Ghostty.app"
+        "/Applications/HomeBrew/Visual Studio Code.app"
+        "/Applications/Antigravity.app"
+        "/Applications/HomeBrew/Typora.app"
+        # "/Applications/HomeBrew/OBS.app"
       ];
     };
 
