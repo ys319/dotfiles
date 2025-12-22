@@ -14,6 +14,7 @@
   wsl.enable = true;
   wsl.interop.register = true;
   wsl.defaultUser = "gecko";
+  wsl.docker-desktop.enable = true;
 
   networking.hostName = "wsl";
 }
