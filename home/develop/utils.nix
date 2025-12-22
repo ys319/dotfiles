@@ -7,7 +7,7 @@
     jupyter
 
     # Cloud tools
-    terraform
+    # terraform
     hasura-cli
     cloudflared
     supabase-cli
