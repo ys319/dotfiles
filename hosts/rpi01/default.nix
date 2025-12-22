@@ -1,4 +1,9 @@
-{ pkgs, nixos, nixos-hardware, ... }:
+{
+  pkgs,
+  nixos,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [
@@ -28,10 +33,12 @@
   networking.interfaces.end0 = {
     useDHCP = false;
     # wakeOnLan.enable = true;
-    ipv4.addresses = [{
-      address = "10.1.2.1";
-      prefixLength = 16;
-    }];
+    ipv4.addresses = [
+      {
+        address = "10.1.2.1";
+        prefixLength = 8;
+      }
+    ];
   };
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "10.0.0.1" ];
@@ -56,7 +63,7 @@
   };
 
   console.enable = true;
-  environment.systemPackages = with pkgs;[
+  environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
   ];
