@@ -18,5 +18,5 @@
   wsl.useWindowsDriver = true;
 
   networking.hostName = "wsl";
-  networking.useNetworkManager = false;
+  networking.networkmanager.enable = false;
 }
