@@ -2,7 +2,7 @@
 
   # Enable mDNS
   services.avahi = {
-    enable = true;
+    enable = lib.mkDefault true;
     nssmdns = true;
     publish = {
       enable = true;

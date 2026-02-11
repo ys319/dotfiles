@@ -12,5 +12,5 @@
   networking.useDHCP = lib.mkDefault true;
 
   # Use default firewall
-  networking.firewall.enable = true;
+  networking.firewall.enable = lib.mkDefault true;
 }
