@@ -26,12 +26,12 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Firewall
-  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [ 2222 ];
   networking.firewall.allowedUDPPorts = [ ];
 
   # Networking
   networking.useDHCP = false;
-  networking.interfaces.enp4s0 = {
+  networking.interfaces.enp42s0 = {
     useDHCP = false;
     wakeOnLan.enable = true;
     ipv4.addresses = [{
