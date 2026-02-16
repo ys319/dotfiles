@@ -18,7 +18,6 @@
     nixos.hardware.default
     nixos.hardware.nvidia
     nixos.services.default
-    nixos.services.libvirtd
     nixos.users.default
   ];
 
@@ -26,7 +25,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Firewall
-  networking.firewall.allowedTCPPorts = [ 2222 ];
+  networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
 
   # Networking
@@ -45,6 +44,7 @@
   # OpenSSH
   services.openssh = {
     enable = true;
+    startWhenNeeded = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "no";

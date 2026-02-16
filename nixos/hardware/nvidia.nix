@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, lib, ... }: {
 
   # Enable graphics
   hardware.graphics = {
@@ -8,19 +8,19 @@
 
   # Nvidia driver
   hardware.nvidia = {
-    open = false;
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    open = lib.mkDefault false;
+    modesetting.enable = lib.mkDefault true;
+    powerManagement.enable = lib.mkDefault true;
+    powerManagement.finegrained = lib.mkDefault false;
+    nvidiaSettings = lib.mkDefault true;
+    package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # Containers
-  hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = lib.mkDefault true;
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [
+  services.xserver.videoDrivers = lib.mkDefault [
     "nvidia"
   ];
 }
