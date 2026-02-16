@@ -33,10 +33,4 @@
     system = "x86_64-linux";
     features = [ "apps" "develop" ];
   };
-
-  # trx
-  trx = {
-    system = "x86_64-linux";
-    features = [ "develop" ];
-  };
 }
