@@ -36,7 +36,7 @@
     wakeOnLan.enable = true;
     ipv4.addresses = [{
       address = "10.1.1.1";
-      prefixLength = 16;
+      prefixLength = 8;
     }];
   };
   networking.defaultGateway = "10.0.0.1";
