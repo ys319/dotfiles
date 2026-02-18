@@ -20,7 +20,5 @@
   hardware.nvidia-container-toolkit.enable = lib.mkDefault true;
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = lib.mkDefault [
-    "nvidia"
-  ];
+  services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
 }
