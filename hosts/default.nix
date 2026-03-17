@@ -1,12 +1,14 @@
 {
 
-  # Work laptop
-  gecko-mac = {
-
-    # nixpkgs system
+  # MacBook Air M2
+  m2 = {
     system = "aarch64-darwin";
+    features = [ "darwin" "develop" ];
+  };
 
-    # feature modules
+  # MacBook Air M5
+  m5 = {
+    system = "aarch64-darwin";
     features = [ "darwin" "develop" ];
   };
 

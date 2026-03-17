@@ -7,5 +7,5 @@ if [[ $# -ne 1 ]]; then
     exit
 fi
 
-# Setup Nix Darwin
+# Run NixOS installer
 nixos-install --flake ".#$1" --root /mnt
