@@ -17,7 +17,7 @@
       if pkgs.stdenv.isDarwin
       then "/Users/${username}"
       else "/home/${username}";
-    stateVersion = "23.11";
+    stateVersion = "25.11";
   };
 
   # Silence news
