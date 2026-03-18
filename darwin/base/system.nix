@@ -38,11 +38,8 @@
         "/Applications/Google Chrome.app"
         "/Applications/HomeBrew/Ghostty.app"
         "/Applications/HomeBrew/Visual Studio Code.app"
-        "/Applications/HomeBrew/Antigravity.app"
         "/Applications/HomeBrew/Typora.app"
         "/Applications/Slack.app"
-        # "/Applications/HomeBrew/WezTerm.app"
-        # "/Applications/HomeBrew/OBS.app"
       ];
     };
 
