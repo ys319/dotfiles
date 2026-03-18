@@ -16,7 +16,7 @@
       # bambu-studio
     ];
 
-  programs = {
-    virt-manager.enable = true;
-  };
+  # programs = {
+  #   virt-manager.enable = true;
+  # };
 }
