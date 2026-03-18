@@ -13,10 +13,5 @@
       wezterm
       wireshark
       keepassxc
-      # bambu-studio
     ];
-
-  # programs = {
-  #   virt-manager.enable = true;
-  # };
 }
