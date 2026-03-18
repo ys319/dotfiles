@@ -9,6 +9,7 @@
       ignores = [
         "*~"
         ".DS_Store"
+        ".claude/settings.local.json"
       ];
 
       settings = {
