@@ -5,12 +5,19 @@
 
     git = {
       enable = true;
+
+      ignores = [
+        "*~"
+        ".DS_Store"
+      ];
+
       settings = {
-        user.email = "66538624+ys319@users.noreply.github.com";
         user.name = "Yoshimasa Kuroyama";
-        ghq = {
-          "root" = "~/repo";
-        };
+        user.email = "66538624+ys319@users.noreply.github.com";
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+        http.postBuffer = 524288000;
+        ghq.root = "~/repo";
       };
     };
 
