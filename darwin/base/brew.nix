@@ -19,6 +19,10 @@
 
     casks = [
 
+      # Browser
+      "firefox"
+      "google-chrome"
+
       # Develop
       "cyberduck"
       "docker-desktop"
@@ -31,17 +35,14 @@
       "obs"
       "vlc"
 
-      # Tools
-      "firefox"
-      "typora"
+      # Productivity
       "keepassxc"
+      "slack"
       "smoothcsv"
+      "typora"
 
       # Fonts
       "font-monaspice-nerd-font"
-
-      # Driver
-      # "wacom-tablet"
     ];
   };
 }
