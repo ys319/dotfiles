@@ -35,9 +35,10 @@
       wvous-br-corner = 1;
 
       persistent-apps = [
-        "/Applications/Google Chrome.app"
+        "/Applications/HomeBrew/Google Chrome.app"
         "/Applications/HomeBrew/Ghostty.app"
         "/Applications/HomeBrew/Visual Studio Code.app"
+        "/Applications/HomeBrew/Claude.app"
         "/Applications/HomeBrew/Typora.app"
         "/Applications/Slack.app"
       ];

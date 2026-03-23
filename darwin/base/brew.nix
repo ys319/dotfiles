@@ -24,6 +24,7 @@
       "google-chrome"
 
       # Develop
+      "claude"
       "cyberduck"
       "docker-desktop"
       "ghostty"
@@ -37,12 +38,14 @@
 
       # Productivity
       "keepassxc"
-      "slack"
       "smoothcsv"
       "typora"
 
       # Fonts
       "font-monaspice-nerd-font"
+
+      # From App Store
+      # "slack"
     ];
   };
 }
