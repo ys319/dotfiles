@@ -37,6 +37,8 @@
       "vlc"
 
       # Productivity
+      "dropbox"
+      "google-drive"
       "keepassxc"
       "smoothcsv"
       "typora"
