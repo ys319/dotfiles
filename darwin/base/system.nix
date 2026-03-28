@@ -156,8 +156,12 @@
         # Silence nosy features.
         "NSAutomaticInlinePredictionEnabled" = 0;
 
-        # 
+        # Trackpad
         "com.apple.trackpad.forceClick" = 0;
+        "com.apple.trackpad.scaling" = "0.6875";
+
+        # Do nothing on title bar double-click
+        "AppleActionOnDoubleClick" = "None";
       };
 
       "com.apple.HIToolbox" = {
@@ -189,6 +193,38 @@
         JIMPrefLiveConversionKey = 0;
         JIMPrefPredictiveCandidateKey = 0;
         JIMPrefShiftKeyActionKey = 1;
+      };
+
+      # Spotlight as app launcher
+      "com.apple.Spotlight" = {
+        EnabledPreferenceRules = [
+          "Custom.relatedContents"
+          "System.iphoneApps"
+          "System.files"
+          "System.folders"
+          "System.menuItems"
+          "com.apple.AppStore"
+          "com.apple.Safari"
+          "com.apple.iCal"
+          "com.apple.systempreferences"
+          "com.apple.shortcuts"
+          "com.apple.tips"
+          "com.apple.iBooksX"
+          "com.apple.VoiceMemos"
+          "com.apple.podcasts"
+          "com.apple.mail"
+          "com.apple.Notes"
+          "com.apple.reminders"
+          "com.apple.calculator"
+          "com.apple.Dictionary"
+          "com.apple.Photos"
+          "com.apple.AddressBook"
+        ];
+      };
+
+      # Disable search query data sharing
+      "com.apple.assistant.support" = {
+        "Search Queries Data Sharing Status" = 2;
       };
 
       "com.apple.AdLib" = {
