@@ -182,6 +182,15 @@
         DSDontWriteUSBStores = true;
       };
 
+      # Japanese IME (Kotoeri)
+      "com.apple.inputmethod.Kotoeri" = {
+        JIMPrefAutocorrectionKey = 0;
+        JIMPrefFullWidthNumeralCharactersKey = 0;
+        JIMPrefLiveConversionKey = 0;
+        JIMPrefPredictiveCandidateKey = 0;
+        JIMPrefShiftKeyActionKey = 1;
+      };
+
       "com.apple.AdLib" = {
         allowApplePersonalizedAdvertising = false;
       };
