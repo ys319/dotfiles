@@ -26,6 +26,8 @@
 
       # Home Manager
       homeConfig = mkHome inputs;
+      # Formatter (per-system)
+      eachSystem = lib.genAttrs [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
     in
     {
 
@@ -40,6 +42,9 @@
 
       # Setup nixos
       nixosConfigurations = lib.mapAttrs nixosConfig hosts;
+
+      # Formatter
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
     };
 
   inputs = {

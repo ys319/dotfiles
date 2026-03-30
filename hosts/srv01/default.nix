@@ -41,15 +41,6 @@
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "10.0.0.1" ];
 
-  # OpenSSH
-  services.openssh = {
-    enable = true;
-    startWhenNeeded = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    settings.PermitRootLogin = "no";
-  };
-
   # Power
   powerManagement.powertop.enable = true;
   services.auto-cpufreq.enable = true;

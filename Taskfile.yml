@@ -92,6 +92,17 @@ tasks:
     cmds:
       - home-manager news
 
+  ### FORMAT / LINT ###
+
+  fmt:
+    cmds:
+      - nix fmt
+
+  lint:
+    cmds:
+      - nix run nixpkgs#statix -- check .
+      - nix run nixpkgs#deadnix -- .
+
   ### Utils ###
 
   update:

@@ -1,55 +1,68 @@
-# CLAUDE.md
+## Overview
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Nix Flakes-based dotfiles managing multiple hosts (macOS via nix-darwin, NixOS, WSL, Raspberry Pi). All configuration is declarative Nix — no symlinks, stow, or chezmoi.
 
 ## Commands
 
-All commands use [Task](https://taskfile.dev/) (see `Taskfile.yml`):
+Uses [Task](https://taskfile.dev/) runner. Host is auto-detected via `hostname`.
 
 ```bash
-task build          # Build all configs (home-manager + system)
-task switch         # Apply all configs
-task test           # Test configs (NixOS/Darwin only, not home-manager)
-task update         # Update flake inputs (nix flake update)
-task gc             # Garbage collect generations older than 14 days
-task news           # Show home-manager news
+task build          # Build all (nixos/darwin system + home-manager)
+task switch         # Apply all configurations
+task test           # Test nixos/darwin system configs
+task update         # nix flake update
+task gc             # Garbage collect (older than 14 days)
 ```
 
-Per-platform variants: `task build.darwin`, `task switch.darwin`, `task build.home`, `task switch.home`, etc.
+Platform-specific sub-tasks (e.g. `build.nixos`, `switch.darwin`, `switch.home`) are internal and auto-selected by platform.
+
+Bootstrap for new machines:
+```bash
+./bootstrap-darwin.sh [hostname]   # macOS
+./bootstrap-nixos.sh [hostname]    # NixOS
+./bootstrap-home.sh [hostname]     # Home Manager only
+```
 
 ## Architecture
 
-This is a **Nix Flakes** repository managing multiple systems from a single `flake.nix`.
+### Flake Structure
 
-### Flake Inputs
-nixpkgs (unstable), home-manager, nix-darwin, nixos-hardware, nixos-wsl, rust-overlay
+`flake.nix` produces three output types from a shared host registry:
+- `homeConfigurations` — user-level config via Home Manager
+- `darwinConfigurations` — macOS system config via nix-darwin
+- `nixosConfigurations` — Linux system config via NixOS
 
-### Flake Outputs
-- `homeConfigurations` — home-manager configs (all hosts)
-- `darwinConfigurations` — macOS system configs
-- `nixosConfigurations` — NixOS system configs
+### Host Registry (`hosts/default.nix`)
 
-### Builders (`lib/`)
-- `mkSystem.nix` — abstracts NixOS vs Darwin system building
-- `mkHome.nix` — builds home-manager configurations
-- `mkModules.nix` — **recursively auto-discovers all `.nix` files** in a directory tree (adding a file auto-includes it)
+Each host declares a `system` (e.g. `aarch64-darwin`, `x86_64-linux`) and a list of `features` to compose. Host-specific system modules live in `hosts/<hostname>/default.nix`.
 
-### Hosts (`hosts/default.nix`)
-Each host declares: system architecture, feature list, and optional extra config. Features map to module subdirectories under `home/`.
+### Feature-Based Module Composition
 
-| Host | System | Features |
-|------|--------|----------|
-| gecko-mac | aarch64-darwin | darwin, develop |
-| srv01 | x86_64-linux | develop |
-| rpi01 | aarch64-linux | develop |
-| wsl | x86_64-linux | develop |
-| x270 | x86_64-linux | apps, develop |
+Home Manager modules are organized into feature directories under `home/`:
+- `home/base/` — always included (zsh, git, starship, fzf, core utilities)
+- `home/darwin/` — macOS-specific (duti file associations)
+- `home/develop/` — development tools (rust, go, node/volta, direnv, cloud CLIs)
+- `home/apps/` — GUI applications (vscode, chrome, wezterm, discord)
 
-### Module Organization
-Modules are organized by scope:
-- **`home/`** — user-level config (base, darwin, develop, apps)
-- **`darwin/`** — macOS system-level config (dock, finder, keyboard, homebrew)
-- **`nixos/`** — NixOS system-level config (boot, hardware, network, services, desktop)
+Each host selects features in `hosts/default.nix`; `mkHome.nix` prepends `"base"` automatically.
 
-### Key Pattern
-To add new configuration: create a `.nix` file in the appropriate module directory — `mkModules` auto-discovers it. To add a new host, define it in `hosts/default.nix` with its features; no changes to `flake.nix` needed.
+### Builder Helpers (`lib/`)
+
+- `mkHome.nix` — builds `homeManagerConfiguration` from host config, importing `home/<feature>` directories
+- `mkSystem.nix` — polymorphic builder for both NixOS and Darwin system configs, loading `hosts/<hostname>` modules
+- `mkModules.nix` — recursively scans directories into nested attribute sets of imported Nix modules
+
+### System Modules
+
+- `nixos/` — NixOS system modules (ssh, docker, networking, hardware, desktop)
+- `darwin/` — nix-darwin system modules
+
+These are loaded via `mkModules` and passed to system builders as `specialArgs`.
+
+## Conventions
+
+- Language is Nix; comments in source are sometimes Japanese
+- `nixpkgs-unstable` channel; `allowUnfree = true`
+- Zsh plugins use Sheldon with `zsh-defer` for lazy loading
+- Rust toolchain comes from `oxalica/rust-overlay`
+- Node.js managed via Volta (not nix)

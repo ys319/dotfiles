@@ -3,23 +3,27 @@
 let
   # ディレクトリを再帰的にスキャンし、ネストした属性セットを構築する関数
   listModules = dir:
+    let
+      entries = builtins.readDir dir;
+      # .nixファイルとディレクトリのみを対象にする
+      validEntries = lib.filterAttrs
+        (name: type: type == "directory" || (type == "regular" && lib.hasSuffix ".nix" name))
+        entries;
+    in
     lib.mapAttrs'
       (name: type:
         let
           path = dir + "/${name}";
         in
         if type == "directory" then
-        # ディレクトリの場合、再帰的にmkModuleを呼び出す
+        # ディレクトリの場合、再帰的にlistModulesを呼び出す
           lib.nameValuePair name (listModules path)
-        else if type == "regular" && lib.hasSuffix ".nix" name then
+        else
         # .nixファイルの場合、ファイル名から拡張子を除いたものをキーとして、インポートしたモジュールを値とする
         # (例: "foo.nix" -> name="foo")
           lib.nameValuePair (lib.removeSuffix ".nix" name) (import path)
-        else
-        # それ以外は無視する
-          lib.nameValuePair "" null
       )
-      (builtins.readDir dir);
+      validEntries;
 in
 
 dir: listModules dir

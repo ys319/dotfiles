@@ -43,14 +43,6 @@
   networking.defaultGateway = "10.0.0.1";
   networking.nameservers = [ "10.0.0.1" ];
 
-  # OpenSSH
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    settings.PermitRootLogin = "no";
-  };
-
   # Hardware
   services.hardware.argonone.enable = true;
   hardware = {
