@@ -6,6 +6,9 @@
       autoUpdate = true;
       cleanup = "uninstall";
       upgrade = true;
+      extraFlags = [
+        "--force-cleanup"
+      ];
     };
 
     caskArgs.appdir = "/Applications/HomeBrew";
@@ -15,6 +18,7 @@
 
     brews = [
       "ys319/tap/jotty"
+      "llama.cpp"
     ];
 
     casks = [
@@ -48,6 +52,9 @@
 
       # From App Store
       # "slack"
+
+      # AI
+      "lm-studio"
     ];
   };
 }
