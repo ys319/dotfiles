@@ -17,7 +17,6 @@
     # ];
 
     brews = [
-      "ys319/tap/jotty"
       "llama.cpp"
     ];
 
@@ -26,6 +25,7 @@
       # Browser
       "firefox"
       "google-chrome"
+      "google-chrome@beta"
 
       # Develop
       "claude"
