@@ -29,7 +29,7 @@
     ripgrep
     ripunzip
     unar
-    xxHash
+    xxhash
     zstd
 
     # Server tool

@@ -3,16 +3,16 @@
   home.packages = with pkgs; [
 
     # data-science
-    xan
-    jupyter
+    # xan
+    # jupyter
 
     # Cloud tools
     # terraform
-    hasura-cli
-    cloudflared
+    # hasura-cli
+    # cloudflared
     supabase-cli
     google-cloud-sdk
-    minio-client
+    # minio-client
 
     # Multimedia tools
     (sox.override { enableLame = true; })
@@ -22,18 +22,18 @@
     libwebp
 
     # AI tools
-    whisper-cpp
+    # whisper-cpp
 
     # Modern cli tools
-    hurl
-    pv
+    # hurl
+    # pv
     jq
     tig
-    bench
+    # bench
     rclone
-    xh
+    # xh
 
     # Penetration tools
-    rustscan
+    # rustscan
   ];
 }
