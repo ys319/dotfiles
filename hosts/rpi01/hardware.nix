@@ -5,7 +5,10 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" ];
+  # Root and /data are USB SSDs behind UAS-capable bridges. usb-storage refuses
+  # UAS devices whenever CONFIG_USB_UAS is enabled, so the uas module has to be
+  # in the initrd (the mainline kernel builds it as a module).
+  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "uas" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
