@@ -97,6 +97,10 @@
     };
   };
 
+  # Let foreign binaries run via nix-ld (the official deno build) dlopen
+  # libvulkan.so.1; the ICDs are then found through /run/opengl-driver/share.
+  programs.nix-ld.libraries = [ pkgs.vulkan-loader ];
+
   console.enable = true;
 
   # flashrom 1.8.0 fails its test suite on aarch64-linux (NixOS/nixpkgs#558302),
