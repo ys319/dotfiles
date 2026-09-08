@@ -21,8 +21,12 @@
     nixos.users.default
   ];
 
-  # Use zen kernel
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Mainline kernel. nixos-hardware defaults to its own downstream RPi kernel
+  # build, which no binary cache serves (NixOS/nixos-hardware#325), so every
+  # update meant hours of compiling on the Pi. Mainline comes from
+  # cache.nixos.org and its device tree already enables v3d/vc4.
+  # Trade-off: no vcio, so vcgencmd / vcmailbox / rpi-eeprom-update do not work.
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # Firewall
   networking.firewall.allowedTCPPorts = [ ];
@@ -44,13 +48,43 @@
   networking.nameservers = [ "10.0.0.1" ];
 
   # Hardware
-  services.hardware.argonone.enable = true;
+  services.hardware.argonone = {
+    enable = true;
+    # argonone.dtbo targets &i2c_arm, a label that only exists in the
+    # downstream device tree; the mainline DTB only has &i2c1.
+    package = pkgs.argononed.overrideAttrs (old: {
+      postPatch = old.postPatch + ''
+        substituteInPlace src/argonone.dts --replace-fail "&i2c_arm" "&i2c1"
+      '';
+    });
+  };
   hardware = {
     enableRedistributableFirmware = true;
     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
     deviceTree = {
       enable = true;
       filter = "*rpi-4-*.dtb";
+      # The mainline DTB has no i2c aliases, so adapter numbers follow probe
+      # order and the Argon One controller lands on a moving /dev/i2c-N.
+      # Pin the SoC i2c1 controller to /dev/i2c-1, argononed's default bus.
+      overlays = [
+        {
+          name = "rpi4-i2c1-alias";
+          dtsText = ''
+            /dts-v1/;
+            /plugin/;
+            / {
+              compatible = "brcm,bcm2711";
+              fragment@0 {
+                target-path = "/aliases";
+                __overlay__ {
+                  i2c1 = "/soc/i2c@7e804000";
+                };
+              };
+            };
+          '';
+        }
+      ];
     };
   };
 
