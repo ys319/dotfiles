@@ -28,6 +28,11 @@
   # Trade-off: no vcio, so vcgencmd / vcmailbox / rpi-eeprom-update do not work.
   boot.kernelPackages = pkgs.linuxPackages;
 
+  # Route the kernel console to HDMI. The mainline DT points stdout-path at the
+  # mini UART (ttyS0) and this kernel registers it, so without console= the
+  # whole stage-1 output (and its error prompt) goes to the GPIO header.
+  boot.kernelParams = [ "console=tty0" ];
+
   # Firewall
   networking.firewall.allowedTCPPorts = [ ];
   networking.firewall.allowedUDPPorts = [ ];
