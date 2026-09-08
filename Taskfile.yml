@@ -60,6 +60,21 @@ tasks:
     cmds:
       - home-manager --flake .#{{.HOST}} switch --show-trace
 
+  ### BOOT ###
+
+  # Register the system config for the next boot without activating it.
+  # For changes that need a reboot anyway (kernel, D-Bus implementation).
+  boot:
+    cmds:
+      - task: boot.nixos
+
+  boot.nixos:
+    internal: true
+    platforms:
+      - linux
+    cmds:
+      - sudo nixos-rebuild --flake .#{{.HOST}} boot --show-trace
+
   ### TEST ###
 
   test:

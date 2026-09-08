@@ -9,6 +9,7 @@ Uses [Task](https://taskfile.dev/) runner. Host is auto-detected via `hostname`.
 ```bash
 task build          # Build all (nixos/darwin system + home-manager)
 task switch         # Apply all configurations
+task boot           # NixOS only: register system config for next boot (kernel/D-Bus changes), then reboot
 task test           # Test nixos/darwin system configs
 task update         # nix flake update
 task gc             # Garbage collect (older than 14 days)
