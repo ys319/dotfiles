@@ -20,7 +20,8 @@
 
     # Public key.
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDq8ogS8+SyuRI3DlbEMr4lK287IYlXcEf5ZKLMJkhf0"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDq8ogS8+SyuRI3DlbEMr4lK287IYlXcEf5ZKLMJkhf0 @x270"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK7Fs1XAaKOO9yG4woffvFFB7FzFQQjHNO+xTZeNfy90 @m5"
     ];
   };
 }
