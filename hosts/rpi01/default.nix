@@ -60,6 +60,10 @@
   };
   hardware = {
     enableRedistributableFirmware = true;
+    # GPU (VideoCore VI). The mainline device tree already enables v3d/vc4, so
+    # only the Mesa userspace is needed: v3d for GL, v3dv for Vulkan (headless
+    # compute works off /dev/dri/renderD128, no display required).
+    graphics.enable = true;
     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
     deviceTree = {
       enable = true;
@@ -105,5 +109,6 @@
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
+    vulkan-tools # vulkaninfo
   ];
 }
