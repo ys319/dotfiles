@@ -55,6 +55,19 @@
   };
 
   console.enable = true;
+
+  # flashrom 1.8.0 fails its test suite on aarch64-linux (NixOS/nixpkgs#558302),
+  # which breaks raspberrypi-eeprom below. tests/chip.c setup_bad_chip() keeps a
+  # pointer to a stack-local mock_chip in flashctx->chip after returning; the
+  # patch makes it static. Not fixed upstream yet — drop this once nixpkgs builds.
+  nixpkgs.overlays = [
+    (_: prev: {
+      flashrom = prev.flashrom.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [ ./flashrom-dangling-mock-chip.patch ];
+      });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
