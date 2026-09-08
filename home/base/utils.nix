@@ -28,7 +28,7 @@
     htop
     ripgrep
     ripunzip
-    unar
+    # unar
     xxhash
     zstd
 
