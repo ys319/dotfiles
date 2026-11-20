@@ -78,5 +78,8 @@
     };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
+
+    # Bulkhead (nixpkgs は follows せず、bulkhead 側の flake.lock で固定されたものを使う)
+    bulkhead.url = "github:ys319/bulkhead";
   };
 }
