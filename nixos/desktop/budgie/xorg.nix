@@ -6,9 +6,8 @@
     # Enable the X11 windowing system.
     enable = true;
 
-    # Enable the Budgie Desktop environment.
+    # Display manager for Budgie.
     displayManager.lightdm.enable = true;
-    desktopManager.budgie.enable = true;
 
     # Keyboard Layout
     xkb = {
@@ -16,6 +15,9 @@
       variant = "";
     };
   };
+
+  # Enable the Budgie Desktop environment.
+  services.desktopManager.budgie.enable = true;
 
   # Mouse and Touchpad
   services.libinput.mouse = {

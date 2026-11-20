@@ -14,7 +14,7 @@
   home = rec {
     username = "gecko";
     homeDirectory =
-      if pkgs.stdenv.isDarwin
+      if pkgs.stdenv.hostPlatform.isDarwin
       then "/Users/${username}"
       else "/home/${username}";
     stateVersion = "25.11";
