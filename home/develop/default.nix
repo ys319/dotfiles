@@ -13,7 +13,6 @@
 
     # CLI Tools
     ./bulkhead.nix
-    ./direnv.nix
     ./utils.nix
     ./volta.nix
   ];

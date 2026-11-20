@@ -42,7 +42,7 @@ Each host declares a `system` (e.g. `aarch64-darwin`, `x86_64-linux`) and a list
 Home Manager modules are organized into feature directories under `home/`:
 - `home/base/` — always included (zsh, git, starship, fzf, core utilities)
 - `home/darwin/` — macOS-specific (duti file associations)
-- `home/develop/` — development tools (rust, go, node/volta, direnv, cloud CLIs)
+- `home/develop/` — development tools (rust, go, node/volta, cloud CLIs)
 - `home/apps/` — GUI applications (vscode, chrome, wezterm, discord)
 
 Each host selects features in `hosts/default.nix`; `mkHome.nix` prepends `"base"` automatically.
