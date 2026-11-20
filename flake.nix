@@ -62,13 +62,15 @@
 
     # Nix Darwin
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # NixOS Hardware
+    # nixpkgs は自身の formatter / checks 用のみ（モジュールは使う側の pkgs で評価される）
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # NixOS WSL
@@ -77,7 +79,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    # Rust Overlay（overlay として読み込むので nixpkgs は lock 上の重複を避けるためだけに揃える）
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Bulkhead (nixpkgs は follows せず、bulkhead 側の flake.lock で固定されたものを使う)
     bulkhead.url = "github:ys319/bulkhead";
